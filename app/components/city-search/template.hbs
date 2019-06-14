@@ -1,0 +1,43 @@
+<div class="city-search__field city-search__input">
+  <label
+    class="is-vishidden"
+    for="code-postal"
+  >
+    Code postal
+  </label>
+  <input
+    id="code-postal"
+    placeholder="Code postal"
+    type="text"
+    oninput={{perform queryCities value="target.value"}}
+  >
+</div>
+
+<div class="city-search__field city-search__dropdown">
+  <label
+    class="is-vishidden"
+    for="ville"
+  >
+    Ville
+  </label>
+  <select
+    id="ville"
+    disabled={{if (or (not this.cities) (eq this.cities.length 1)) true}}
+  >
+    {{#if this.cities}}
+      {{#each this.cities as |city|}}
+        <option value={{city.insee_code}}>{{city.name}}</option>
+      {{/each}}
+    {{else}}
+      <option value=''>Ville</option>
+    {{/if}}
+  </select>
+</div>
+
+<div class="city-search__field city-search__submit">
+  <button
+    type="submit"
+  >
+    go
+  </button>
+</div>
