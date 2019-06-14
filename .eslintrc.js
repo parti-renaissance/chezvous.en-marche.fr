@@ -3,12 +3,14 @@ module.exports = {
     server: true,
   }              ,
   root: true,
+  parser: 'babel-eslint',
   parserOptions: {
     ecmaVersion: 2018,
     sourceType: 'module'
   },
   plugins: [
-    'ember'
+    'ember',
+    'ember-es6-class',
   ],
   extends: [
     'eslint:recommended',
