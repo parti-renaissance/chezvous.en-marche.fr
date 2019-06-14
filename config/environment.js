@@ -24,6 +24,8 @@ module.exports = function(environment) {
 
     // endpoints
     algoliaApp: process.env.ALGOLIA_APP,
+    algoliaApiKey: process.env.ALGOLIA_API_KEY,
+    cityIndex: process.env.CITY_INDEX,
   };
 
   if (environment === 'development') {
