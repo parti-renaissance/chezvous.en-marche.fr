@@ -20,7 +20,10 @@ module.exports = function(environment) {
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
-    }
+    },
+
+    // endpoints
+    algoliaApp: process.env.ALGOLIA_APP,
   };
 
   if (environment === 'development') {
@@ -29,6 +32,15 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
+
+    // enable mirage on the command line by running `$ MIRAGE=true ember serve`
+    // anything truthy will work: `$ MIRAGE=1 ember serve`
+    ENV['ember-cli-mirage'] = {
+      enabled: !!process.env.MIRAGE, // allow evaluated value to control on/off
+    };
+    if (process.env.MIRAGE) {
+      console.log('mirage enabled'); // eslint-disable-line
+    }
   }
 
   if (environment === 'test') {
@@ -45,6 +57,7 @@ module.exports = function(environment) {
 
   if (environment === 'production') {
     // here you can enable a production-specific feature
+    ENV.algoliaApp = 'abc123';
   }
 
   return ENV;
