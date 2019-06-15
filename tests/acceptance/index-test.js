@@ -1,5 +1,5 @@
 import { module, test } from 'qunit';
-import { visit, currentURL, click, fillIn, pauseTest } from '@ember/test-helpers';
+import { visit, currentURL, click, fillIn, settled } from '@ember/test-helpers';
 import { setupApplicationTest } from 'ember-qunit';
 import { setupMirage } from 'ember-cli-mirage/test-support';
 
@@ -14,6 +14,9 @@ module('Acceptance | index', function(hooks) {
 
     assert.equal(currentURL(), '/');
     await fillIn('.city-search__input input', 'foo');
+
+    // wait for ember concurrency tasks
+    await settled();
 
     assert.dom('.city-search__dropdown option').exists({count: 11});
 
