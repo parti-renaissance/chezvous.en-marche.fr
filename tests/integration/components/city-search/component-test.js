@@ -12,6 +12,7 @@ module('Integration | Component | city-search', function(hooks) {
     await render(hbs`<CitySearch />`);
 
     assert.dom('form.city-search').exists();
+    assert.dom('.city-search__submit button').isDisabled('disabled at load');
   });
 
   test('clicking submit calls onSubmit arg', async function(assert) {
@@ -20,7 +21,8 @@ module('Integration | Component | city-search', function(hooks) {
 
     this.setProperties({ submit });
 
-    await render(hbs`<CitySearch @onSubmit={{submit}}/>`);
+    // initialize with a value for cities so button is not disabled
+    await render(hbs`<CitySearch @onSubmit={{submit}} @cities={{true}}/>`);
 
     await click('.city-search__submit button');
   });
@@ -100,6 +102,33 @@ module('Integration | Component | city-search', function(hooks) {
 
     await render(hbs`<CitySearch @cities={{CITIES}} @onSubmit={{ON_SUBMIT}} />`);
     await fillIn('.city-search__dropdown select', '456'); // select second option
+    await click('.city-search__submit button');
+  });
+
+  test('submitting without choosing a city submits the first city', async function(assert) {
+    assert.expect(1);
+
+    const CITIES = [{
+      name: 'foo',
+      insee_code: '123'
+    }, {
+      name: 'bar',
+      insee_code: '456'
+    }];
+    const CITY_INDEX = {
+      search: this.stub().resolves({
+        hits: CITIES,
+      })
+    };
+
+    const ON_SUBMIT = city => assert.deepEqual(city, CITIES[0], 'should pass in the first city');
+
+    this.setProperties({ CITY_INDEX, ON_SUBMIT });
+
+    await render(hbs`<CitySearch @cityIndex={{CITY_INDEX}} @onSubmit={{ON_SUBMIT}} />`);
+    await fillIn('.city-search__input input', 'foo');
+
+    // don't use the dropdown
     await click('.city-search__submit button');
   });
 });

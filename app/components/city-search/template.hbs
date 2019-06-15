@@ -22,7 +22,7 @@
   </label>
   <select
     id="ville"
-    disabled={{if (or (not this.cities) (eq this.cities.length 1)) true}}
+    disabled={{or (not this.cities) (eq this.cities.length 1)}}
     onchange={{action (mut this.insee_code) value="target.value"}}
   >
     {{#if this.cities}}
@@ -38,6 +38,7 @@
 <div class="city-search__field city-search__submit">
   <button
     type="submit"
+    disabled={{not this.cities}}
   >
     go
   </button>

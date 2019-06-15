@@ -40,11 +40,13 @@ export default class CitySearch extends Component {
 
   @restartableTask
   queryCities = function*(value) {
-    let response = yield this.doQuery.perform(value);
-    this.set('cities', response.hits);
+    let { hits:cities } = yield this.doQuery.perform(value);
+    this.set('cities', cities);
 
-    if (response.hits.length === 1) {
-      this.set('insee_code', response.hits[0].insee_code);
+    // first city is viewable in the dropdown
+    // make it the selected city as well
+    if (cities.length) {
+      this.set('insee_code', cities[0].insee_code);
     }
   }
 
