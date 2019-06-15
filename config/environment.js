@@ -62,5 +62,10 @@ module.exports = function(environment) {
     // here you can enable a production-specific feature
   }
 
+  if (process.env.DEPLOY_TARGET === 'dev') {
+    ENV.rootURL = '/municipales.en-marche.fr';
+    ENV.locationType = 'hash';
+  }
+
   return ENV;
 };
