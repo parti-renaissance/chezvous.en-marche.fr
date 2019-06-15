@@ -2,6 +2,7 @@ import algoliasearch from 'algoliasearch/lite';
 
 import { isBlank } from '@ember/utils';
 import Component from '@ember/component';
+import { filter } from '@ember/object/computed';
 import { tagName, classNames } from '@ember-decorators/component';
 import { restartableTask } from 'ember-concurrency-decorators';
 import { timeout } from 'ember-concurrency';
@@ -17,12 +18,34 @@ const cityIndex = client.initIndex(config.cityIndex);
 export default class CitySearch extends Component {
 
   DEBOUNCE_MS = 25;
-
-  insee_code = null;
+  cities = [];
 
   constructor() {
     super(...arguments);
     this.cityIndex = cityIndex;
+  }
+
+  submit(e) {
+    e.preventDefault();
+    if (this.onSubmit) {
+      let [ selectedCity ] = this.filteredCity;
+      this.onSubmit(selectedCity);
+    }
+  }
+
+  // returns an array
+  @filter('cities', function(city) {
+    return city.insee_code === this.insee_code;
+  }) filteredCity
+
+  @restartableTask
+  queryCities = function*(value) {
+    let response = yield this.doQuery.perform(value);
+    this.set('cities', response.hits);
+
+    if (response.hits.length === 1) {
+      this.set('insee_code', response.hits[0].insee_code);
+    }
   }
 
   @restartableTask
@@ -35,18 +58,5 @@ export default class CitySearch extends Component {
     yield timeout(this.DEBOUNCE_MS);
     let response = yield this.cityIndex.search({query});
     return response;
-  }
-
-  submit(e) {
-    e.preventDefault();
-    if (this.onSubmit) {
-      this.onSubmit(this.insee_code);
-    }
-  }
-
-  @restartableTask
-  queryCities = function*(value) {
-    let response = yield this.doQuery.perform(value);
-    this.set('cities', response.hits);
   }
 }

@@ -23,6 +23,7 @@
   <select
     id="ville"
     disabled={{if (or (not this.cities) (eq this.cities.length 1)) true}}
+    onchange={{action (mut this.insee_code) value="target.value"}}
   >
     {{#if this.cities}}
       {{#each this.cities as |city|}}

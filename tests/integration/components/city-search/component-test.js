@@ -65,20 +65,41 @@ module('Integration | Component | city-search', function(hooks) {
   });
 
   test('if there is only one city, disable the dropdown', async function(assert) {
-    const cityIndex = {
+    assert.expect(2);
+
+    const CITY = { insee_code: 'foo' };
+    const CITY_INDEX = {
       search: this.stub().resolves({
-        hits: [{
-          insee_code: 'foo',
-        }],
+        hits: [CITY],
       })
     };
+    const ON_SUBMIT = city => assert.deepEqual(city, CITY, 'submitting should pass only city');
 
-    this.set('cityIndex', cityIndex);
+    this.setProperties({ ON_SUBMIT, CITY_INDEX });
 
-    await render(hbs`<CitySearch @cityIndex={{cityIndex}} />`);
+    await render(hbs`<CitySearch @cityIndex={{CITY_INDEX}} @onSubmit={{ON_SUBMIT}} />`);
     await fillIn('.city-search__input input', 'foo');
 
     assert.dom('select').isDisabled();
 
+    await click('.city-search__submit button');
+  });
+
+  test('submitting calls onChange with the selected city object', async function(assert) {
+    assert.expect(1);
+
+    const CITIES = [{
+      name: 'foo',
+      insee_code: '123'
+    }, {
+      name: 'bar',
+      insee_code: '456'
+    }];
+    const ON_SUBMIT = city => assert.deepEqual(city, CITIES[1], 'should pass in selected city');
+    this.setProperties({ CITIES, ON_SUBMIT });
+
+    await render(hbs`<CitySearch @cities={{CITIES}} @onSubmit={{ON_SUBMIT}} />`);
+    await fillIn('.city-search__dropdown select', '456'); // select second option
+    await click('.city-search__submit button');
   });
 });
