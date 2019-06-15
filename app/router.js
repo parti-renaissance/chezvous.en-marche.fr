@@ -7,6 +7,7 @@ const Router = EmberRouter.extend({
 });
 
 Router.map(function() {
+  this.route('map', {path: 'map/:insee_code'});
 });
 
 export default Router;
