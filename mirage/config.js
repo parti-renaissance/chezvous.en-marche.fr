@@ -1,4 +1,15 @@
+import config from '../config/environment';
+
+
 export default function() {
+  this.urlPrefix = `https://${config.algoliaApp.toLowerCase()}-dsn.algolia.net`;
+  this.namespace = '/1/indexes';
+
+  this.post(`/${config.cityIndex}/query`, (schema/*, request*/) => {
+    // let { params } = JSON.parse(request.requestBody);
+
+    return schema.cityHits.all();
+  });
 
   // These comments are here to help you get started. Feel free to delete them.
 
