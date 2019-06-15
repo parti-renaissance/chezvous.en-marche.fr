@@ -9,7 +9,7 @@ module('Acceptance | index', function(hooks) {
 
   test('landing page', async function(assert) {
     server.createList('city-hit', 10);
-    server.create('city-hit', {insee_code: 12345});
+    server.create('city-hit', {insee_code: '12345'});
     await visit('/');
 
     assert.equal(currentURL(), '/');
