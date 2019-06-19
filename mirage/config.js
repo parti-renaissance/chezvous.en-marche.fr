@@ -11,6 +11,8 @@ export default function() {
     return schema.cityHits.all();
   });
 
+  this.passthrough('https://a.tiles.mapbox.com/**');
+
   // These comments are here to help you get started. Feel free to delete them.
 
   /*

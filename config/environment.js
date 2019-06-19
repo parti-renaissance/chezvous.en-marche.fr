@@ -26,6 +26,9 @@ module.exports = function(environment) {
     algoliaApp: process.env.ALGOLIA_APP,
     algoliaApiKey: process.env.ALGOLIA_API_KEY,
     cityIndex: process.env.CITY_INDEX,
+
+    // other config
+    mapboxToken: process.env.MAPBOX_TOKEN,
   };
 
   if (environment === 'development') {
