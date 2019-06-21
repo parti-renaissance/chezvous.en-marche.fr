@@ -5,11 +5,22 @@ export default function() {
   this.urlPrefix = `https://${config.algoliaApp.toLowerCase()}-dsn.algolia.net`;
   this.namespace = '/1/indexes';
 
-  this.post(`/${config.cityIndex}/query`, (schema/*, request*/) => {
-    // let { params } = JSON.parse(request.requestBody);
+  this.post(`/${config.cityIndex}/query`, (schema, request) => {
+    let { params } = JSON.parse(request.requestBody);
+    params = decodeURIComponent(params)
+      .split('&')
+      .map(p => p.split('='))
+      .reduce((params, [key, val]) => {params[key] = val; return params}, {});
 
-    return schema.cityHits.all();
+    if (params.restrictSearchableAttributes) {
+      // looking at one city
+      return schema.cityHits.where({ insee_code: params.query });
+    } else {
+      return schema.cityHits.all();
+    }
   });
+
+  this.passthrough('https://a.tiles.mapbox.com/**');
 
   // These comments are here to help you get started. Feel free to delete them.
 
