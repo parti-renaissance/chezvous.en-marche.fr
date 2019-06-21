@@ -13,15 +13,15 @@ module('Acceptance | index', function(hooks) {
     await visit('/');
 
     assert.equal(currentURL(), '/');
-    await fillIn('.city-search__input input', 'foo');
+    await fillIn('[data-test-city-search-input]', 'foo');
 
     // wait for ember concurrency tasks
     await settled();
 
-    assert.dom('.city-search__dropdown option').exists({count: 11});
+    assert.dom('[data-test-city-search-select] option').exists({count: 11});
 
-    await fillIn('.city-search__dropdown select', '12345');
-    await click('.city-search__submit button');
+    await fillIn('[data-test-city-search-select]', '12345');
+    await click('[data-test-city-search-submit-button]');
 
     assert.equal(currentURL(), '/map/12345');
   });

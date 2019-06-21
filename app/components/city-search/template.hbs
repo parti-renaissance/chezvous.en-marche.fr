@@ -6,6 +6,7 @@
     Code postal
   </label>
   <input
+    data-test-city-search-input
     id="code-postal"
     placeholder="Code postal"
     type="text"
@@ -21,6 +22,7 @@
     Ville
   </label>
   <select
+    data-test-city-search-select
     id="ville"
     disabled={{or (not this.cities) (eq this.cities.length 1)}}
     onchange={{action (mut this.insee_code) value="target.value"}}
@@ -37,6 +39,7 @@
 
 <div class="city-search__field city-search__submit">
   <button
+    data-test-city-search-submit-button
     type="submit"
     disabled={{not this.cities}}
   >
