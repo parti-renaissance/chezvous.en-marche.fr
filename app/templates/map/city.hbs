@@ -21,7 +21,10 @@
 
     <div class="city-summary__grid">
       {{#each model.summary as |summary|}}
-        <Summary @summary={{summary}}/>
+        <Summary
+          @summary={{summary}}
+          data-test-summary
+        />
       {{/each}}
     </div>
   </div>
