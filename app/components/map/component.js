@@ -4,6 +4,7 @@ import Component from '@ember/component';
 import { tagName } from '@ember-decorators/component';
 
 import config from '../../config/environment';
+import TEMPLATES from './filter-templates';
 
 L.mapbox.accessToken = config.mapboxToken;
 
@@ -14,6 +15,9 @@ export default class Map extends Component {
   coordinates = []
   markers = []
 
+  mapMarkers = []
+  filters = []
+
   didInsertElement() {
     super.didInsertElement(...arguments);
 
@@ -21,9 +25,12 @@ export default class Map extends Component {
 
     const BOUNDS = L.latLngBounds();
     this.markers.forEach(marker => {
-      L.marker(marker.coordinates).addTo(map);
+      this.mapMarkers.pushObject(L.marker(marker.coordinates).addTo(map));
       BOUNDS.extend(marker.coordinates);
     });
+
+    // build filter labels
+    this.markers.uniqBy('type').forEach(type => this.filters.push(TEMPLATES[type]));
 
     map.fitBounds(BOUNDS);
 
