@@ -29,6 +29,21 @@ module.exports = function(environment) {
 
     // other config
     mapboxToken: process.env.MAPBOX_TOKEN,
+
+    // excplicitly choose which font awesome icons to include to reduce bundle
+    fontawesome: {
+      icons: {
+        'free-brands-svg-icons': [
+          'twitter',
+          'facebook-f',
+          'telegram-plane',
+        ],
+        'free-solid-svg-icons': [
+          'rss',
+          'ellipsis-v',
+        ],
+      },
+    },
   };
 
   if (environment === 'development') {

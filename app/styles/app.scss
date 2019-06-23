@@ -1,6 +1,10 @@
 @import "mixins/fonts";
 @import "vars";
 
+@import 'ember-basic-dropdown';
+@import "ember-modal-dialog/ember-modal-structure";
+@import "ember-modal-dialog/ember-modal-appearance";
+
 $breakpoints: (large: 667px, medium: 375px);
 @import "_include-media";
 
