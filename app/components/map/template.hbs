@@ -1,1 +1,11 @@
-<div id="map" data-test-map/>
+<div id="map-ui" class="map-ui" data-test-map/>
+
+{{#each this.filters as |filter|}}
+  <Map::filter
+    data-test-filter
+    @type={{filter.type}}
+    @label={{filter.label}}
+    @selected={{filter.selected}}
+    @filter={{action 'filter'}}
+  />
+{{/each}}
