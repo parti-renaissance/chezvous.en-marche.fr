@@ -13,7 +13,7 @@ module('Acceptance | index', function(hooks) {
     await visit('/');
 
     assert.equal(currentURL(), '/');
-    await fillIn('[data-test-city-search-input]', 'foo');
+    await fillIn('[data-test-city-search-input]', 'paris');
 
     // wait for ember concurrency tasks
     await settled();

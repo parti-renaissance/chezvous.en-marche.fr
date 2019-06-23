@@ -16,7 +16,7 @@ module('Acceptance | map', function(hooks) {
     const NAME = 'Foo';
     server.create('city-hit', {
       name: NAME,
-      insee_code: 'foo',
+      insee_code: 'le-marais',
       markers: [{
         type: "creation_maison_service_au_public",
         coordinates: [ 48.5815276, 7.7407641 ]
@@ -31,7 +31,7 @@ module('Acceptance | map', function(hooks) {
       }],
     });
 
-    await visit('/map/foo');
+    await visit('/map/le-marais');
 
     assert.dom('[data-test-city-name]').hasText(NAME);
     assert.dom('[data-test-summary]').exists({count: 2});
@@ -40,20 +40,22 @@ module('Acceptance | map', function(hooks) {
 
   test('searching for a new city', async function(assert) {
     server.create('city-hit', {insee_code: '1234'})
+    server.create('city-hit', {insee_code: 'normandy'})
 
     await visit('/map/1234');
 
-    await click('[data-test-search]');
+    await click('[data-test-open-search]');
 
-    await fillIn('[data-test-city-search-input]', 'foo');
+    await fillIn('[data-test-city-search-input]', 'normandy');
 
     await settled();
 
-    assert.dom('[data-test-city-search-select] option').exists({count: 11});
+    assert.dom('[data-test-city-search-select] option').exists({count: 2});
 
-    await fillIn('[data-test-city-search-select]', 'foo');
+    await fillIn('[data-test-city-search-select]', 'normandy');
+
     await click('[data-test-city-search-submit-button]');
 
-    assert.equal(currentURL(), '/map/foo');
+    assert.equal(currentURL(), '/map/normandy');
   });
 });
