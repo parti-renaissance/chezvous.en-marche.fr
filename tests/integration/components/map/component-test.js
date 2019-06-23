@@ -4,19 +4,21 @@ import { render } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 import test from 'ember-sinon-qunit/test-support/test';
 
-import L from 'mapbox.js';
+import mapboxgl from 'mapbox-gl';
 
 module('Integration | Component | map', function(hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function(assert) {
-    this.stub(L.mapbox, 'map')
-      .returns({
-        setView: () => this.stub({ fitBounds() {} })
-      });
+    this.stub(mapboxgl, 'Map')
+      .returns(this.stub({
+        fitBounds() {},
+        remove() {},
+     }));
 
-    this.stub(L, 'marker')
+    this.stub(mapboxgl, 'Marker')
       .returns({
+        setLngLat: this.stub().returnsThis(),
         addTo() {},
       });
     await render(hbs`<Map />`);
@@ -27,24 +29,33 @@ module('Integration | Component | map', function(hooks) {
   test('calls mapbox functions with expected args', async function() {
     const ZOOM = 10;
     const MARKERS = [{
-      coordinates: [123, 456],
+      coordinates: [49, 24],
     }, {
-      coordinates: [789, 102],
+      coordinates: [77, -62],
     }];
-    const COORDS = [1111, 2222];
+    const COORDS = [20, 70];
 
     this.setProperties({ MARKERS, COORDS, ZOOM });
 
-    this.stub(L.mapbox, 'map')
+    this.mock(mapboxgl)
+      .expects('Map')
+      .withArgs({
+        container: 'map-ui',
+        style: 'mapbox://styles/mapbox/light-v9',
+        center: [COORDS[1], COORDS[0]],
+        zoom: ZOOM,
+      })
       .returns({
-        setView: this.mock().withArgs(COORDS, ZOOM).returns({ fitBounds: this.mock().once() })
+        fitBounds: this.mock().once(),
+        remove() {},
       });
 
-    this.mock(L)
-      .expects('marker')
+    this.mock(mapboxgl)
+      .expects('Marker')
       .twice()
       .returns({
-        addTo() {}
+        setLngLat: this.stub().returnsThis(),
+        addTo() {},
       });
 
     await render(hbs`<Map @coordinates={{COORDS}} @markers={{MARKERS}} @ZOOM_LEVEL={{ZOOM}} />`);
