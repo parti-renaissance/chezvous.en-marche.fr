@@ -11,7 +11,7 @@ mapboxgl.accessToken = config.mapboxToken;
 @tagName('')
 export default class Map extends Component {
 
-  ZOOM_LEVEL = 20
+  ZOOM_LEVEL = 14
   coordinates = []
   markers = []
 
