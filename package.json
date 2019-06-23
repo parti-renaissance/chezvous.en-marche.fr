@@ -62,7 +62,7 @@
     "faker": "^4.1.0",
     "include-media": "^1.4.9",
     "loader.js": "^4.7.0",
-    "mapbox.js": "^3.2.0",
+    "mapbox-gl": "^1.0.0",
     "normalize.css": "^8.0.1",
     "qunit-dom": "^0.8.4",
     "sass": "^1.21.0"
