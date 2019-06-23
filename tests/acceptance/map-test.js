@@ -16,7 +16,7 @@ module('Acceptance | map', function(hooks) {
     const NAME = 'Foo';
     server.create('city-hit', {
       name: NAME,
-      insee_code: '1234',
+      insee_code: 'foo',
       markers: [{
         type: "creation_maison_service_au_public",
         coordinates: [ 48.5815276, 7.7407641 ]
@@ -31,7 +31,7 @@ module('Acceptance | map', function(hooks) {
       }],
     });
 
-    await visit('/map/1234');
+    await visit('/map/foo');
 
     assert.dom('[data-test-city-name]').hasText(NAME);
     assert.dom('[data-test-summary]').exists({count: 2});
