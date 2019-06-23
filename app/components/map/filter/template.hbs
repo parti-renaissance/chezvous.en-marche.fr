@@ -1,0 +1,14 @@
+<div class="map-filter__left">
+  <input
+    type="checkbox"
+    onchange={{action 'onchange' @type}}
+    id={{concat 'filter-' @type}}
+    checked={{@selected}}
+    data-test-filter-input
+  >
+</div>
+<div class="map-filter__right">
+  <label class="map-filter__label" for={{concat 'filter-' @type}} data-test-map-filter-label>
+    {{{@label}}}
+  </label>
+</div>
