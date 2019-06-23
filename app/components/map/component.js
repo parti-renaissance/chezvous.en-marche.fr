@@ -1,14 +1,14 @@
 import mapboxgl from 'mapbox-gl';
 
 import Component from '@ember/component';
-import { tagName } from '@ember-decorators/component';
+import { classNames } from '@ember-decorators/component';
 
 import config from '../../config/environment';
 import TEMPLATES from './filter-templates';
 
 mapboxgl.accessToken = config.mapboxToken;
 
-@tagName('')
+@classNames('map')
 export default class Map extends Component {
 
   ZOOM_LEVEL = 14
