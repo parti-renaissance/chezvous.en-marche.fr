@@ -1,0 +1,38 @@
+<div class="header-toolbar__left">
+  <Logo/>
+</div>
+
+<div class="header-toolbar__center">
+  <button
+    class="header-search"
+    data-test-open-search
+    {{action (mut showSearch) true}}
+  >
+    + Rechercher une commune
+  </button>
+</div>
+
+<div class="header-toolbar__right">
+  {{#if (media 'isLarge')}}
+    <HeaderToolbar::feedback data-test-feedback />
+  {{else}}
+    {{#basic-dropdown as |dd|}}
+      {{#dd.trigger class="header-toolbar__feedback-button"}}
+        <FaIcon @icon='ellipsis-v'/>
+      {{/dd.trigger}}
+
+      {{#dd.content}}
+        <HeaderToolbar::feedback @orientation='v' data-test-feedback />
+      {{/dd.content}}
+    {{/basic-dropdown}}
+  {{/if}}
+</div>
+
+{{#if showSearch}}
+  {{#modal-dialog}}
+    <CitySearch
+      @onSubmit={{action 'goToCity'}}
+      data-test-city-search/>
+  {{/modal-dialog}}
+
+{{/if}}
