@@ -41,4 +41,8 @@ export default class Map extends Component {
 
     this.map.fitBounds(BOUNDS, {padding: 50});
   }
+
+  willDestroyElement() {
+    this.map.remove();
+  }
 }
