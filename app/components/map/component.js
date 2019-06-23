@@ -1,4 +1,4 @@
-import L from 'mapbox.js';
+import mapboxgl from 'mapbox-gl';
 
 import Component from '@ember/component';
 import { tagName } from '@ember-decorators/component';
@@ -6,7 +6,7 @@ import { tagName } from '@ember-decorators/component';
 import config from '../../config/environment';
 import TEMPLATES from './filter-templates';
 
-L.mapbox.accessToken = config.mapboxToken;
+mapboxgl.accessToken = config.mapboxToken;
 
 @tagName('')
 export default class Map extends Component {
@@ -21,18 +21,24 @@ export default class Map extends Component {
   didInsertElement() {
     super.didInsertElement(...arguments);
 
-    var map = L.mapbox.map('map', 'mapbox.light').setView(this.coordinates, this.ZOOM_LEVEL);
-
-    const BOUNDS = L.latLngBounds();
-    this.markers.forEach(marker => {
-      this.mapMarkers.pushObject(L.marker(marker.coordinates).addTo(map));
-      BOUNDS.extend(marker.coordinates);
+    this.map = window.map = new mapboxgl.Map({
+      container: 'map-ui',
+      style: 'mapbox://styles/mapbox/light-v9',
+      center: [this.coordinates[1], this.coordinates[0]],
+      zoom: this.ZOOM_LEVEL,
     });
 
     // build filter labels
     this.markers.uniqBy('type').forEach(type => this.filters.push(TEMPLATES[type]));
+    const BOUNDS = new mapboxgl.LngLatBounds();
 
-    map.fitBounds(BOUNDS);
+    this.markers.forEach(({ coordinates, type }) => {
+      const coords = [coordinates[1], coordinates[0]];
+      const marker = new mapboxgl.Marker().setLngLat(coords);
+      marker.addTo(this.map);
+      BOUNDS.extend(coords);
+    });
 
+    this.map.fitBounds(BOUNDS, {padding: 50});
   }
 }
