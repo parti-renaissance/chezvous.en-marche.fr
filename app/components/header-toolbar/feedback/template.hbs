@@ -1,0 +1,51 @@
+<HeaderToolbar::button
+  @open={{action 'dialog' 'email' (hash
+    subject='TK TK report an error'
+    body='TK TK report an error'
+  )}}
+  class="header-feedback__email"
+  data-test-report
+>
+  Signaler une erreur
+</HeaderToolbar::button>
+
+<div class="header-feedback__share">
+  <div class="header-feedback__share-label">
+    Partager
+  </div>
+
+  <div class="header-feedback__share-group">
+    <HeaderToolbar::button
+      @open={{action 'dialog' 'twitter' (hash
+        text=@title
+        via='EnMarche'
+      )}}
+      data-test-share-twitter
+    >
+      <FaIcon @icon='twitter' @prefix='fab' />
+    </HeaderToolbar::button>
+
+    <HeaderToolbar::button
+      data-test-share-facebook
+      @open={{action 'dialog' 'facebook'}}
+    >
+      <FaIcon @icon='facebook-f' @prefix='fab' />
+    </HeaderToolbar::button>
+
+    <HeaderToolbar::button
+      data-test-share-telegram
+      @open={{action 'dialog' 'telegram'}}
+    >
+      <FaIcon @icon='telegram-plane' @prefix='fab' />
+    </HeaderToolbar::button>
+
+    <a
+      href="https://en-marche.fr"
+      target="_blank"
+      rel="noopener"
+      data-test-rss
+    >
+      <FaIcon @icon='rss' />
+    </a>
+  </div>
+</div>
