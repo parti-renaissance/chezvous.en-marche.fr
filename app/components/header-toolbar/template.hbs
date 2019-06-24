@@ -8,7 +8,11 @@
     data-test-open-search
     {{action (mut showSearch) true}}
   >
-    + Rechercher une commune
+    {{#if (media 'isMedium')}}
+      + Rechercher une commune
+    {{else}}
+      {{svg-jar "search"}}
+    {{/if}}
   </button>
 </div>
 
@@ -18,7 +22,7 @@
   {{else}}
     {{#basic-dropdown as |dd|}}
       {{#dd.trigger class="header-toolbar__feedback-button"}}
-        <FaIcon @icon='ellipsis-v'/>
+        {{svg-jar "more"}}
       {{/dd.trigger}}
 
       {{#dd.content}}
