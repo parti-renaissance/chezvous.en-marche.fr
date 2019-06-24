@@ -1,5 +1,5 @@
 import Component from '@ember/component';
-import { classNames } from '@ember-decorators/component';
+import { classNames, className } from '@ember-decorators/component';
 import { action } from '@ember/object';
 
 const windowOptions = ({ width, height, top, left }) =>
@@ -36,6 +36,8 @@ const SERVICE_MAP = {
 
 @classNames('header-feedback')
 export default class HeaderFeedback extends Component {
+
+  @className vertical
 
   @action
   dialog(service, params) {
