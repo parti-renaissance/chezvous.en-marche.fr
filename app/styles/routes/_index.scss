@@ -1,0 +1,36 @@
+.home {
+  min-height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+
+  > main {
+    margin: auto 0;
+
+    padding: 20px;
+
+    @include media('>=medium') {
+      padding: 30px;
+    }
+  }
+}
+
+.home-header {
+  padding: 20px;
+
+  @include media('>=medium') {
+    padding: 30px;
+  }
+}
+
+.home-subhead {
+  @include subhead;
+}
+
+.home-heading {
+  @include heading;
+}
+
+.home-body {
+  @include body;
+}

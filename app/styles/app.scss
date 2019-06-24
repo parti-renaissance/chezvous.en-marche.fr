@@ -1,4 +1,5 @@
 @import "mixins/fonts";
+@import "mixins/text";
 @import "vars";
 
 @import 'ember-basic-dropdown';
@@ -11,4 +12,7 @@ $breakpoints: (large: 667px, medium: 375px);
 @import "base";
 @import "layout";
 
+@import "routes/index";
+
 @import "components/map";
+@import "components/logo";
