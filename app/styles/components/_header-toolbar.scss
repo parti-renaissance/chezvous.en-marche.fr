@@ -1,0 +1,38 @@
+.header-toolbar {
+  background-color: $pale-gray;
+  padding: 20px;
+
+  display: flex;
+  align-items: center;
+}
+
+.header-toolbar__center {
+  margin-left: auto;
+
+  @include media('>=medium') {
+    margin-left: 20px;
+    flex: 1;
+  }
+}
+
+.header-search {
+  @include button($padding: 4px);
+  display: flex;
+  align-items: center;
+
+  .icon-search {
+    width: 36px;
+    height: 36px;
+
+    path {
+      fill: black;
+    }
+  }
+}
+
+.header-toolbar__feedback-button {
+  .icon-more {
+    width: 30px;
+    height: 30px;
+  }
+}
