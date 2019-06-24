@@ -1,4 +1,17 @@
-.l-main {
-  height: 100vh;
-  padding: 20px;
+.l-home {
+  min-height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+
+  > main {
+    max-width: 667px;
+    margin: auto;
+
+    padding: 20px;
+
+    @include media('>=large') {
+      padding: 5px;
+    }
+  }
 }

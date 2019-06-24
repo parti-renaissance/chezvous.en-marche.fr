@@ -1,0 +1,89 @@
+.city-search {
+  display: flex;
+  align-self: center;
+
+  justify-content: space-between;
+
+  flex-wrap: wrap;
+
+  > * + * {
+    margin-top: 17px;
+
+    @include media('>=medium') {
+      margin-top: 0;
+
+      margin-left: 12px;
+    }
+  }
+}
+
+.city-search__field {
+  flex-basis: 100%;
+
+  @include media('>=medium') {
+    flex-basis: auto;
+  }
+}
+
+.city-search__input {
+
+  @include media('>=medium') {
+    flex-basis: 170px;
+  }
+
+  @include media('>=large') {
+    flex-basis: 220px;
+  }
+
+  > input {
+    @include input;
+    height: 100%;
+  }
+}
+
+.city-search__dropdown {
+  flex-grow: 1;
+  position: relative;
+
+  &:after {
+    content: '';
+    display: block;
+    position: absolute;
+
+    width: 0;
+    height: 0;
+
+    border: solid 6px transparent;
+    border-bottom-width: 0;
+    border-top-color: $lightgray;
+
+    right: 10px;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+  }
+
+  > select {
+    @include input($padding: 18px 24px 18px 12px);
+
+    height: 100%;
+
+    &[disabled] {
+      color: $gray;
+      background-color: $pale-gray;
+    }
+
+  }
+}
+
+.city-search__submit {
+
+  @include media('>=medium') {
+    flex-basis: 96px;
+  }
+
+  > button {
+    @include blue-button;
+    height: 100%;
+  }
+}

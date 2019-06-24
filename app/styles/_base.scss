@@ -1,7 +1,6 @@
 *,
 *:before,
-*:after {
-  box-sizing: border-box;
+*:after { box-sizing: border-box;
 }
 
 html {
@@ -34,4 +33,8 @@ h6 {
 
 img {
   max-width: 100%;
+}
+
+input {
+  border-radius: 0;
 }
