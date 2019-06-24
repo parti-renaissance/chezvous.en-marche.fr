@@ -24,7 +24,7 @@
   display: grid;
   row-gap: 25px;
 
-  @include media('>=medium') {
+  @include media('>=550px') {
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 36px;
   }
