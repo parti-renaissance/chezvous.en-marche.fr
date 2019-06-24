@@ -1,0 +1,23 @@
+{{#modal-dialog
+  targetAttachment='top'
+  overlayClass='city-search-modal__overlay'
+  containerClass='city-search-modal'
+  onClose=(action @close)
+}}
+  <div class="city-search-modal__header">
+    <Logo/>
+
+    <button {{action @close}} class="city-search-modal__close">
+      {{svg-jar "close"}}
+    </button>
+  </div>
+
+  <div class="city-search-modal__body">
+    <h3 class="city-search-modal__subhead">
+      Rechercher une commune
+    </h3>
+    <CitySearch
+      @onSubmit={{@onSubmit}}
+      data-test-city-search/>
+  </div>
+{{/modal-dialog}}
