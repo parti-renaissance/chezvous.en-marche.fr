@@ -1,0 +1,33 @@
+.summary {
+  display: flex;
+}
+
+.summary__left {
+  flex-basis: 24px;
+
+  display: flex;
+  justify-content: center;
+
+  .icon-checkmark {
+    width: 19px;
+    height: 19px;
+
+    fill: white;
+    background-color: $green-blue;
+    padding: 3px;
+    border-radius: 50%;
+  }
+}
+
+.summary__right {
+  flex: 1;
+  margin-left: 15px;
+}
+
+.summary-label {
+  font-family: $font-roboto;
+  font-size: 18px;
+  font-weight: bold;
+  line-height: 1.44;
+  color: black;
+}

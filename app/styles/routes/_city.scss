@@ -1,0 +1,36 @@
+.city-detail {
+  padding: 0 20px;
+}
+.city-subhead {
+  @include subhead;
+}
+
+.city-heading {
+  @include heading($margin-bottom: 10px);
+}
+
+.city-kicker {
+  font-family: $font-roboto;
+  font-size: 16px;
+  font-weight: normal;
+  color: $gray;
+}
+
+.city-summary-subhead {
+  @include subhead($margin-bottom: 34px);
+}
+
+.city-summary__grid {
+  display: grid;
+  row-gap: 25px;
+
+  @include media('>=medium') {
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 36px;
+  }
+
+  @include media('>=large') {
+    column-gap: 68px;
+    row-gap: 36px;
+  }
+}
