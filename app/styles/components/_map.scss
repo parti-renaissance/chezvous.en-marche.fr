@@ -1,3 +1,178 @@
-#map-ui {
-  height: 400px;
+.map {
+  position: relative;
+
+  @include media('>=large') {
+    display: flex;
+  }
+}
+
+.map-ui {
+  height: 375px;
+
+  @include media('>=large') {
+    flex: 1;
+    margin-right: 27px;
+
+    + .map-filters {
+      flex-basis: 300px;
+    }
+  }
+}
+
+.map-filter-control {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+.map-filter-button {
+  @include blue-button;
+
+  > .icon-controls {
+    width: 30px;
+    height: 30px;
+    fill: white;
+  }
+}
+
+.map-filter-modal__overlay {
+  background-color: rgba($darkgray, 0.5);
+
+  @include media('>=medium') {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.map-filter-modal {
+  bottom: 0;
+  width: 100%;
+
+  max-width: 375px;
+
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: none;
+
+  @include media('>=medium') {
+    bottom: auto;
+  }
+
+  &__header {
+    margin-bottom: 20px;
+    text-align: right;
+  }
+
+  &__close {
+    @include button($display: inline-flex);
+
+    > .icon-close {
+      width: 20px;
+      fill: $gray;
+    }
+  }
+
+  .map-filters {
+    margin-bottom: 25px;
+  }
+}
+
+.map-filter-modal__submit {
+  @include blue-button($padding: 17px);
+  width: 100%;
+}
+
+.map-filter {
+  display: flex;
+  align-items: center;
+
+  &__left {
+    flex-basis: 22px;
+    margin-right: 12px;
+
+    display: flex;
+    align-items: center;
+  }
+
+  &__right {
+    flex: 1;
+  }
+}
+
+.map-filter__input {
+  position: relative;
+
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  width: 22px;
+  height: 22px;
+  background-color: white;
+
+  border: 1px solid $lightgray;
+
+  transition: background-color 125ms ease;
+
+  &:before,
+  &:after {
+    content: '';
+    display: block;
+    position: absolute;
+
+    width: 2px;
+
+    background-color: white;
+
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+
+    margin: auto;
+
+    transition: transform 125ms cubic-bezier(.02,.55,.73,1.57);
+  }
+
+  &:before {
+    height: 10px;
+
+    left: 4px;
+    bottom: 2px;
+
+    transform: scale(0) rotate(36deg);
+  }
+
+  &:after {
+    height: 6px;
+
+    right: 5px;
+    bottom: -2px;
+
+    transform: scale(0) rotate(-50deg);
+  }
+
+  &:checked {
+    background-color: black;
+
+    transition: background-color 125ms ease;
+
+    &:before {
+      transform: scale(1) rotate(36deg);
+    }
+
+    &:after {
+      transform: scale(1) rotate(-50deg);
+    }
+
+  }
+}
+
+.map-filter__label {
+  font-family: $font-roboto;
+  font-size: 16px;
+  line-height: 1.25;
+  color: $darkgray;
 }

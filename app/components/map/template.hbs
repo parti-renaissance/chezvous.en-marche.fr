@@ -1,11 +1,61 @@
 <div id="map-ui" class="map-ui" data-test-map/>
 
-{{#each this.filters as |filter|}}
-  <Map::filter
-    data-test-filter
-    @type={{filter.type}}
-    @label={{filter.label}}
-    @selected={{filter.selected}}
-    @filter={{action 'filter'}}
-  />
-{{/each}}
+{{#if (media 'isLarge')}}
+  <div class="map-filters">
+    {{#each this.filters as |filter|}}
+      <Map::filter
+        data-test-filter
+        @type={{filter.type}}
+        @label={{filter.label}}
+        @selected={{filter.selected}}
+        @filter={{action 'filter'}}
+      />
+    {{/each}}
+  </div>
+{{else}}
+  <div class="map-filter-control">
+    <button
+      class="map-filter-button"
+      data-test-map-filter-button
+      {{action (mut showFilters) true}}
+    >
+      {{svg-jar 'controls'}}
+    </button>
+  </div>
+
+  {{#if showFilters}}
+    {{#modal-dialog
+      targetAttachment='bottom'
+      overlayClass='map-filter-modal__overlay'
+      containerClass='map-filter-modal'
+      onClose=(action (mut showFilters) false)
+    }}
+      <div class="map-filter-modal__header">
+        <button
+          class="map-filter-modal__close"
+          {{action (mut showFilters) false}}
+        >
+          {{svg-jar 'close'}}
+        </button>
+      </div>
+
+      <div class="map-filters">
+        {{#each this.filters as |filter|}}
+          <Map::filter
+            data-test-filter
+            @type={{filter.type}}
+            @label={{filter.label}}
+            @selected={{filter.selected}}
+            @filter={{action 'filter'}}
+          />
+        {{/each}}
+      </div>
+
+      <div class="map-filter-modal__footer">
+        <button class="map-filter-modal__submit" {{action (mut showFilters) false}}>
+          OK
+        </button>
+      </div>
+    {{/modal-dialog}}
+  {{/if}}
+{{/if}}
