@@ -2,6 +2,7 @@ import { module, test } from 'qunit';
 import { visit, currentURL, click, fillIn, settled } from '@ember/test-helpers';
 import { setupApplicationTest } from 'ember-qunit';
 import { setupMirage } from 'ember-cli-mirage/test-support';
+import { setBreakpoint } from 'ember-responsive/test-support';
 
 module('Acceptance | map', function(hooks) {
   setupApplicationTest(hooks);
@@ -13,6 +14,8 @@ module('Acceptance | map', function(hooks) {
   });
 
   test('visiting a city', async function(assert) {
+    setBreakpoint('large');
+
     const NAME = 'Foo';
     server.create('city-hit', {
       name: NAME,
