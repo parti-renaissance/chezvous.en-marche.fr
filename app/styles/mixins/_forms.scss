@@ -24,6 +24,7 @@
 }
 
 @mixin button(
+  $display: flex,
   $border: none,
   $border-radius: 0,
   $background-color: transparent,
@@ -32,6 +33,10 @@
   $color: black,
   $padding: 0,
 ) {
+  display: $display;
+  align-items: center;
+  justify-content: center;
+
   cursor: pointer;
   appearance: none;
   -webkit-appearance: none;
@@ -46,12 +51,14 @@
   color: $color;
 }
 
-@mixin blue-button {
+@mixin blue-button(
+  $padding: 8px,
+) {
   @include button(
     $border-radius: 3px,
     $border: solid 1px $blue,
     $background-color: $blue,
     $color: white,
-    $padding: 8px,
+    $padding: $padding,
   )
 }
