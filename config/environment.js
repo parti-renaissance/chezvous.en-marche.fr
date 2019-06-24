@@ -40,7 +40,6 @@ module.exports = function(environment) {
         ],
         'free-solid-svg-icons': [
           'rss',
-          'ellipsis-v',
         ],
       },
     },
