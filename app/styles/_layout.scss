@@ -10,6 +10,10 @@
 
     padding: 20px;
 
+    @include media('>=medium') {
+      margin-top: 110px;
+    }
+    
     @include media('>=large') {
       padding: 5px;
     }
