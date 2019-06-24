@@ -1,10 +1,16 @@
 .city-search {
+  width: 100%;
   display: flex;
-  align-self: center;
 
-  justify-content: space-between;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
 
-  flex-wrap: wrap;
+  @include media('>=medium') {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
 
   > * + * {
     margin-top: 17px;
@@ -14,14 +20,6 @@
 
       margin-left: 12px;
     }
-  }
-}
-
-.city-search__field {
-  flex-basis: 100%;
-
-  @include media('>=medium') {
-    flex-basis: auto;
   }
 }
 
@@ -42,8 +40,11 @@
 }
 
 .city-search__dropdown {
-  flex-grow: 1;
   position: relative;
+
+  @include media('>=medium') {
+    flex-grow: 1;
+  }
 
   &:after {
     content: '';
@@ -85,5 +86,16 @@
   > button {
     @include blue-button;
     height: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .icon-search {
+    fill: white;
+    width: 30px;
+    height: 30px;
   }
 }
