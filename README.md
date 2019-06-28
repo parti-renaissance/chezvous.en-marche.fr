@@ -16,7 +16,7 @@ You will need the following things properly installed on your computer.
 
 ## Installation
 
-* `git clone git@github.com:enmarche/municipales` this repository
+* `git clone git@github.com:enmarche/municipales.en-marche.fr` this repository
 * `cd municipales`
 * `yarn install`
 
