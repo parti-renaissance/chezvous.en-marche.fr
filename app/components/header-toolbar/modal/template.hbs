@@ -3,21 +3,25 @@
   overlayClass='city-search-modal__overlay'
   containerClass='city-search-modal'
   onClose=(action @close)
+  animatable=true
+  overlayPosition='sibling'
 }}
-  <div class="city-search-modal__header">
-    <Logo/>
+  <div class="city-search-modal__inner">
+    <div class="city-search-modal__header">
+      <Logo/>
 
-    <button {{action @close}} class="city-search-modal__close">
-      {{svg-jar "close"}}
-    </button>
-  </div>
+      <button {{action @close}} class="city-search-modal__close">
+        {{svg-jar "close"}}
+      </button>
+    </div>
 
-  <div class="city-search-modal__body">
-    <h3 class="city-search-modal__subhead">
-      Rechercher une commune
-    </h3>
-    <CitySearch
-      @onSubmit={{@onSubmit}}
-      data-test-city-search/>
+    <div class="city-search-modal__body">
+      <h3 class="city-search-modal__subhead">
+        Rechercher une commune
+      </h3>
+      <CitySearch
+        @onSubmit={{@onSubmit}}
+        data-test-city-search/>
+    </div>
   </div>
 {{/modal-dialog}}

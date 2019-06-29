@@ -21,6 +21,10 @@
     max-width: 1200px;
     margin: 0 auto;
   }
+
+  &.liquid-dialog.ember-modal-dialog {
+    position: fixed;
+  }
 }
 
 .city-search-modal__overlay {
