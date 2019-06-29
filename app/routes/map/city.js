@@ -30,4 +30,9 @@ export default class CityRoute extends Route {
   error(e) {
     console.log('no bueno', e.insee_code, e); // eslint-disable-line
   }
+
+  @action
+  didTransition() {
+    window.scrollTo(0, 0);
+  }
 }
