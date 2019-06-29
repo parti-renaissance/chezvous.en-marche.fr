@@ -66,6 +66,8 @@
     "eslint-plugin-node": "^9.0.1",
     "faker": "^4.1.0",
     "include-media": "^1.4.9",
+    "liquid-fire": "^0.30.0",
+    "liquid-wormhole": "^2.1.5",
     "loader.js": "^4.7.0",
     "mapbox-gl": "^1.0.0",
     "normalize.css": "^8.0.1",
