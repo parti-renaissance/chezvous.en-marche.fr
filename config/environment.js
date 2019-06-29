@@ -73,6 +73,11 @@ module.exports = function(environment) {
     ENV.APP.rootElement = '#ember-testing';
     ENV.APP.autoboot = false;
     ENV.algoliaApp = 'abc123';
+    ENV.algoliaApiKey = '456xyz';
+    ENV.cityIndex = 'city';
+
+    ENV.mapboxToken = '123456';
+    
   }
 
   if (environment === 'production') {
