@@ -56,7 +56,6 @@ templates:
       branches:
         only: /[A-Za-z-_]+/[A-Za-z-_\d]+/
 
-version: 2
 jobs:
   build-static:
     <<: *defaults
