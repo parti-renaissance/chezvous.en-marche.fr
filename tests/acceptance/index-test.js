@@ -3,9 +3,12 @@ import { visit, currentURL, click, fillIn, settled } from '@ember/test-helpers';
 import { setupApplicationTest } from 'ember-qunit';
 import { setupMirage } from 'ember-cli-mirage/test-support';
 
+import { setupMapbox } from '../helpers/mapbox-stubs';
+
 module('Acceptance | index', function(hooks) {
   setupApplicationTest(hooks);
   setupMirage(hooks);
+  setupMapbox(hooks);
 
   test('landing page', async function(assert) {
     server.createList('city-hit', 10);

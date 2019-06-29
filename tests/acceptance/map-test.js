@@ -4,9 +4,12 @@ import { setupApplicationTest } from 'ember-qunit';
 import { setupMirage } from 'ember-cli-mirage/test-support';
 import { setBreakpoint } from 'ember-responsive/test-support';
 
+import { setupMapbox } from '../helpers/mapbox-stubs';
+
 module('Acceptance | map', function(hooks) {
   setupApplicationTest(hooks);
   setupMirage(hooks);
+  setupMapbox(hooks);
 
   test('visiting /map', async function(assert) {
     await visit('/map');
