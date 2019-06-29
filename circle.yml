@@ -1,0 +1,139 @@
+---
+templates:
+  defaults: &defaults
+    docker:
+      - image: circleci/node:10-browsers
+        environment:
+          JOBS: 2
+
+  node_key: &node_key
+    key: node-deps-{{ checksum "yarn.lock" }}-{{ checksum "circle.yml" }}
+
+  restore_node: &restore_node
+    restore_cache:
+      <<: *node_key
+
+  deploy_static: &deploy_static
+    <<: *defaults
+    steps:
+      - checkout
+      - <<: *restore_node
+      - deploy:
+          name: Deploy to S3
+          command: |
+            env | sed -n "s/^${ENV}_//p" >> .env
+            npx ember deploy "$(echo $ENV | awk '{print tolower($0)}')" --verbose
+
+  deploy_dev: &deploy_dev
+    <<: *defaults
+    steps:
+      - checkout
+      - <<: *restore_node
+      - deploy:
+          name: Deploy to GitHub Pages
+          command: |
+            env | sed -n "s/^DEV_//p" >> .env
+            npx ember deploy dev --verbose
+
+
+  filter_demo: &filter_demo
+    filters:
+      branches:
+        only: master
+      tags:
+        only: demo
+
+  filter_prod: &filter_prod
+    filters:
+      branches:
+        ignore: /.*/
+      tags:
+        only: /^v[0-9]+\.[0-9]+\.[0-9]+/
+
+  filter_qa: &filter_qa
+    filters:
+      branches:
+        only: /[A-Za-z-_]+/[A-Za-z-_\d]+/
+
+version: 2
+jobs:
+  build-static:
+    <<: *defaults
+    steps:
+      - checkout
+
+      - <<: *restore_node
+      - run:
+          name: Install node dependencies
+          command: |
+            if [ ! -d node_modules ]; then
+              yarn --pure-lockfile
+            fi
+      - save_cache:
+          <<: *node_key
+          paths:
+            - node_modules
+
+  test-static:
+    <<: *defaults
+    steps:
+      - checkout
+      - <<: *restore_node
+      - run:
+          name: Test
+          environment:
+            CIRCLE_TEST_RESULTS: test-results
+          command: npx ember test
+      - store_test_results:
+          path: test-results/
+
+  deploy-static-demo:
+    environment:
+      ENV: DEMO
+    <<: *deploy_static
+
+  deploy-static-prod:
+    environment:
+      ENV: PROD
+    <<: *deploy_static
+
+  deploy-static-dev:
+    <<: *deploy_dev
+
+workflows:
+  version: 2
+  just-test:
+    jobs:
+      - build-static:
+          filters:
+            branches:
+              ignore: /master|[A-Za-z-_]+/[A-Za-z-_\d]+/
+      - test-static:
+          requires:
+            - build-static
+
+  deploy-demo:
+    jobs:
+      - build-static:
+          <<: *filter_demo
+      - test-static:
+          <<: *filter_demo
+          requires:
+            - build-static
+      - deploy-static-dev:
+          <<: *filter_demo
+          requires:
+            - test-static
+
+  deploy-prod:
+    jobs:
+      - build-static:
+          <<: *filter_prod
+      - test-static:
+          <<: *filter_prod
+          requires:
+            - build-static
+      - deploy-static-prod:
+          <<: *filter_prod
+          requires:
+            - test-static
