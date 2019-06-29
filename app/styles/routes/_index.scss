@@ -30,3 +30,104 @@
     margin-bottom: 50px;
   }
 }
+
+.home-cityscape {
+  position: relative;
+
+  height: 70px;
+
+  @include media('>=medium') {
+    height: 163px;
+
+    margin-bottom: auto;
+  }
+
+
+  &:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 1px;
+
+    width: 100%;
+    height: 45px;
+    background-color: $pale-gray;
+
+    @include media('>=medium') {
+      height: 106px;
+    }
+  }
+
+  > svg {
+    position: absolute;
+    right: 0;
+
+    height: 100%;
+
+    @include media('>=xlarge') {
+      left: 0;
+      margin: auto;
+    }
+  }
+}
+
+.windmill {
+  transform-origin: 1059px 31px;
+  animation: spin 50s linear infinite forwards;
+}
+
+.cloud-small {
+  opacity: 0.5;
+
+  position: absolute;
+  z-index: -1;
+
+  top: 35%;
+  right: 100%;
+  margin: auto;
+
+  animation: move-right 180s 3s linear infinite forwards;
+}
+
+.cloud-big {
+  opacity: 0.5;
+
+  position: absolute;
+  z-index: -1;
+
+  top: 25%;
+  left: 100%;
+  margin: auto;
+
+  animation: move-left 180s 3s linear infinite forwards;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes move-right {
+  from {
+    transform: translateX(0px);
+  }
+
+  to {
+    transform: translateX(2000px);
+  }
+}
+
+@keyframes move-left {
+  from {
+    transform: translateX(0px);
+  }
+
+  to {
+    transform: translateX(-2000px);
+  }
+}
