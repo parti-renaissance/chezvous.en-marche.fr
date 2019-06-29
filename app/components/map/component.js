@@ -24,7 +24,13 @@ export default class Map extends Component {
     return this.markers
       .uniqBy('type')
       .mapBy('type')
-      .map(type => ({ type, label: this.TEMPLATES[type] || type, selected: true }));
+      .map(type => ({
+        type,
+        label: (this.TEMPLATES[type] ? this.TEMPLATES[type].label : false) || type,
+        color: this.TEMPLATES[type] ? this.TEMPLATES[type].color : '',
+        selected: true
+      })
+    );
   }
 
   @action
@@ -64,7 +70,19 @@ export default class Map extends Component {
       // mapbox expects them to be [long, lat]
       const coords = [coordinates[1], coordinates[0]];
 
-      const marker = new mapboxgl.Marker().setLngLat(coords);
+      const markup = `<svg xmlns="http://www.w3.org/2000/svg"><use xlink:href="#marker" /></svg>`;
+      const range = document.createRange();
+      const frag = range.createContextualFragment(markup);
+
+      const icon = document.createElement('div');
+      const colorClass = TEMPLATES[type] ? `color--${TEMPLATES[type].color}` : undefined;
+      icon.classList.add('map-marker', colorClass);
+
+      icon.appendChild(frag.firstElementChild);
+
+      const marker = new mapboxgl.Marker({
+        element: icon,
+      }).setLngLat(coords);
       marker.type = type;
 
       marker.addTo(this.map);

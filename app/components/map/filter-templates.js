@@ -1,3 +1,6 @@
 export default {
-  creation_maison_service_au_public: "Création d'une maison de service au public",
+  new_public_house: {
+    label: "Création d'une maison de service au public",
+    color: 'azure',
+  },
 };

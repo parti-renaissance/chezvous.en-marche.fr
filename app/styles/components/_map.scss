@@ -19,6 +19,11 @@
   }
 }
 
+.map-marker {
+  width: 35px;
+  height: 45px;
+}
+
 .map-filter-control {
   position: absolute;
   top: 20px;
@@ -99,6 +104,10 @@
   &__right {
     flex: 1;
   }
+
+  &.azure .map-filter__input:checked {
+    color: $azure;
+  }
 }
 
 .map-filter__input {
@@ -112,7 +121,8 @@
   height: 22px;
   background-color: white;
 
-  border: 1px solid $lightgray;
+  color: transparent;
+  border: 2px solid $lightgray;
 
   transition: background-color 125ms ease;
 
@@ -155,9 +165,10 @@
   }
 
   &:checked {
-    background-color: black;
-
     transition: background-color 125ms ease;
+
+    border-color: currentColor;
+    background-color: currentColor;
 
     &:before {
       transform: scale(1) rotate(36deg);
@@ -166,7 +177,6 @@
     &:after {
       transform: scale(1) rotate(-50deg);
     }
-
   }
 }
 
@@ -175,4 +185,18 @@
   font-size: 16px;
   line-height: 1.25;
   color: $darkgray;
+
+  cursor: pointer;
+}
+
+.color--azure {
+  color: $azure;
+}
+
+.color--watermelon {
+  color: $watermelon;
+}
+
+.color--marigold {
+  color: $marigold;
 }
