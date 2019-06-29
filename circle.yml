@@ -33,6 +33,8 @@ templates:
       - deploy:
           name: Deploy to GitHub Pages
           command: |
+            git config --global user.email "deploy@circleci"
+            git config --global user.name "deploy bot"
             env | sed -n "s/^DEV_//p" >> .env
             npx ember deploy dev --verbose
 
