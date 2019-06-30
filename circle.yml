@@ -30,6 +30,9 @@ templates:
     steps:
       - checkout
       - <<: *restore_node
+      - add_ssh_keys:
+          fingerprints:
+            - "c7:b5:c4:c5:4a:4b:5d:4e:42:b6:f9:53:fa:38:36:23"
       - deploy:
           name: Deploy to GitHub Pages
           command: |
