@@ -42,12 +42,12 @@ templates:
             npx ember deploy dev --verbose
 
 
-  filter_demo: &filter_demo
+  filter_staging: &filter_staging
     filters:
       branches:
         only: master
       tags:
-        only: demo
+        only: staging
 
   filter_prod: &filter_prod
     filters:
@@ -92,9 +92,9 @@ jobs:
       - store_test_results:
           path: test-results/
 
-  deploy-static-demo:
+  deploy-static-staging:
     environment:
-      ENV: DEMO
+      ENV: STAGING
     <<: *deploy_static
 
   deploy-static-prod:
@@ -116,16 +116,16 @@ workflows:
           requires:
             - build-static
 
-  deploy-demo:
+  deploy-staging:
     jobs:
       - build-static:
-          <<: *filter_demo
+          <<: *filter_staging
       - test-static:
-          <<: *filter_demo
+          <<: *filter_staging
           requires:
             - build-static
-      - deploy-static-dev:
-          <<: *filter_demo
+      - deploy-static-staging:
+          <<: *filter_staging
           requires:
             - test-static
 
