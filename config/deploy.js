@@ -3,7 +3,12 @@
 
 module.exports = function(deployTarget) {
   let ENV = {
-    build: {},
+    build: {
+      environment: 'production',
+    },
+    git: {
+      commitMessage: 'Deploying [skip ci]',
+    },
     'gcloud-storage': {
       credentials: {
         private_key: process.env.GCS_PRIVATE_KEY.replace(/\\n/g, '\n'),
@@ -16,20 +21,23 @@ module.exports = function(deployTarget) {
 
   if (deployTarget === 'dev') {
     ENV.build.environment = 'development';
-    ENV.git = {
-      commitMessage: 'Deploying [skip ci]',
-    };
-    // configure other plugins for development deploy target here
   }
 
   if (deployTarget === 'staging') {
-    ENV.build.environment = 'production';
-    // configure other plugins for staging deploy target here
+    // staging config
   }
 
   if (deployTarget === 'prod') {
-    ENV.build.environment = 'prod';
-    // configure other plugins for production deploy target here
+    // prod config
+  }
+
+  // only run git deploy in dev
+  if (deployTarget !== 'dev') {
+    ENV.pipeline = {
+      disabled: {
+        git: true
+      }
+    };
   }
 
   // Note: if you need to build some configuration asynchronously, you can return
