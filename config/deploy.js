@@ -4,9 +4,6 @@
 module.exports = function(deployTarget) {
   let ENV = {
     build: {},
-    git: {
-      commitMessage: 'Deploying [skip ci]',
-    },
     'gcloud-storage': {
       credentials: {
         private_key: process.env.GCS_PRIVATE_KEY.replace(/\\n/g, '\n'),
@@ -17,8 +14,11 @@ module.exports = function(deployTarget) {
     }
   };
 
-  if (deployTarget === 'development') {
+  if (deployTarget === 'dev') {
     ENV.build.environment = 'development';
+    ENV.git = {
+      commitMessage: 'Deploying [skip ci]',
+    };
     // configure other plugins for development deploy target here
   }
 
@@ -27,8 +27,8 @@ module.exports = function(deployTarget) {
     // configure other plugins for staging deploy target here
   }
 
-  if (deployTarget === 'production') {
-    ENV.build.environment = 'production';
+  if (deployTarget === 'prod') {
+    ENV.build.environment = 'prod';
     // configure other plugins for production deploy target here
   }
 
