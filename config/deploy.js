@@ -9,7 +9,7 @@ module.exports = function(deployTarget) {
     },
     'gcloud-storage': {
       credentials: {
-        private_key: process.env.GCS_PRIVATE_KEY,
+        private_key: process.env.GCS_PRIVATE_KEY.replace(/\\n/g, '\n'),
         client_email: process.env.GCS_CLIENT_EMAIL,
       },
       projectId: process.env.GCS_PROJECT_ID,
