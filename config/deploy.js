@@ -6,6 +6,14 @@ module.exports = function(deployTarget) {
     build: {},
     git: {
       commitMessage: 'Deploying [skip ci]',
+    },
+    'glcoud-storage': {
+      credentials: {
+        private_key: process.env.GCS_PRIVATE_KEY,
+        client_email: process.env.GCS_CLIENT_EMAIL,
+      },
+      projectId: process.env.GCS_PROJECT_ID,
+      bucket: process.env.GCLOUD_BUCKET,
     }
   };
 
