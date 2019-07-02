@@ -3,6 +3,7 @@
 
 module.exports = function(deployTarget) {
   let ENV = {
+    pipeline: {},
     build: {
       environment: 'production',
     },
@@ -16,6 +17,11 @@ module.exports = function(deployTarget) {
       },
       projectId: process.env.GCS_PROJECT_ID,
       bucket: process.env.GCLOUD_BUCKET,
+    },
+    'gcs-index': {
+      projectId: process.env.GCS_PROJECT_ID,
+      bucket: process.env.GCLOUD_BUCKET,
+      allowOverwrite: true,
     }
   };
 
@@ -25,6 +31,7 @@ module.exports = function(deployTarget) {
 
   if (deployTarget === 'staging') {
     // staging config
+    ENV.pipeline.activateOnDeploy = true;
   }
 
   if (deployTarget === 'prod') {
@@ -33,10 +40,13 @@ module.exports = function(deployTarget) {
 
   // only run git deploy in dev
   if (deployTarget !== 'dev') {
-    ENV.pipeline = {
-      disabled: {
-        git: true
-      }
+    ENV.pipeline.disabled = {
+      git: true,
+    };
+  } else {
+    ENV.pipeline.disabled = {
+      'gcloud-storage': true,
+      'gcs-index': true,
     };
   }
 

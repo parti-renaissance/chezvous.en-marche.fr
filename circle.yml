@@ -23,7 +23,7 @@ templates:
           name: Deploy to Google Cloud
           command: |
             env | sed -n "s/^${ENV}_//p" >> .env
-            npx ember deploy "$(echo $ENV | awk '{print tolower($0)}')" --verbose
+            npx ember deploy "$(echo $ENV | awk '{print tolower($0)}')" --verbose --activate
 
   deploy_dev: &deploy_dev
     <<: *defaults
