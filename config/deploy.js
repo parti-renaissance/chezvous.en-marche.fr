@@ -19,6 +19,7 @@ module.exports = function(deployTarget) {
       bucket: process.env.GCLOUD_BUCKET,
     },
     'gcs-index': {
+      keyFilename: './key.json',
       projectId: process.env.GCS_PROJECT_ID,
       bucket: process.env.GCLOUD_BUCKET,
       allowOverwrite: true,
