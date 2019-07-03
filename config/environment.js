@@ -2,7 +2,7 @@
 
 module.exports = function(environment) {
   let ENV = {
-    modulePrefix: 'municipales',
+    modulePrefix: 'chezvous',
     environment,
     rootURL: '/',
     locationType: 'auto',
@@ -77,7 +77,7 @@ module.exports = function(environment) {
     ENV.cityIndex = 'city';
 
     ENV.mapboxToken = '123456';
-    
+
   }
 
   if (environment === 'production') {
@@ -85,7 +85,7 @@ module.exports = function(environment) {
   }
 
   if (process.env.DEPLOY_TARGET === 'dev') {
-    ENV.rootURL = '/municipales.en-marche.fr';
+    ENV.rootURL = '/chezvous.en-marche.fr';
     ENV.locationType = 'hash';
   }
 

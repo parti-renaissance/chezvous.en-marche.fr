@@ -16,8 +16,8 @@ You will need the following things properly installed on your computer.
 
 ## Installation
 
-* `git clone git@github.com:enmarche/municipales.en-marche.fr` this repository
-* `cd municipales`
+* `git clone git@github.com:enmarche/chezvous.en-marche.fr chezvous` this repository
+* `cd chezvous`
 * `yarn install`
 
 ## Running / Development
@@ -58,11 +58,13 @@ This project uses ember-cli-deploy to run deployments.
 There are three environments, each with its own command.
 
 - dev: ember deploy dev
- - Deploys to https://enmarche.github.io/municipales
+ - Deploys to https://enmarche.github.io/chezvous.en-marche.fr
 - staging: ember deploy staging you can run this command from your machine
- - TBD commits to master will deploy to staging
+ - Deploys to https://staging-chezvous.en-marche.fr
+ - commits to master will deploy to staging
 - prod: ember deploy prod
- - TBD tags following semantic versioning will deploy to prod
+ - Deploys to https://chezvous.en-marche.fr
+ - tags following semantic versioning will deploy to prod
 
 ## Further Reading / Useful Links
 

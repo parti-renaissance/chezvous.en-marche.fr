@@ -1,8 +1,8 @@
 {
-  "name": "municipales",
+  "name": "chezvous",
   "version": "0.0.0",
   "private": true,
-  "description": "Small description for municipales goes here",
+  "description": "What's Macron been doing near your for the past 2 years?",
   "repository": "",
   "license": "MIT",
   "author": "",
