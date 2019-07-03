@@ -29,18 +29,18 @@ export default Factory.extend({
       ]
     }
   ]),
-  summary: () => ([
+  measures: () => ([
     {
-      "type": "fiber_optic_coverage",
-      "data": {
-        "new_installations": 23,
-        "coverage": 8
+      type: "fiber_optic_coverage",
+      payload: {
+        new_installations: 23,
+        coverage: 8
       }
     },
     {
-      "type": "total_new_houses",
-      "data": {
-        "houses_count": 2
+      type: "total_new_houses",
+      payload: {
+        houses_count: 2
       }
     }
   ]),

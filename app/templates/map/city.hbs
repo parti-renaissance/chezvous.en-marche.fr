@@ -20,7 +20,7 @@
     <h2 class="city-summary-subhead">Les Détails</h2>
 
     <div class="city-summary__grid">
-      {{#each model.summary as |summary|}}
+      {{#each model.measures as |summary|}}
         <Summary
           @summary={{summary}}
           data-test-summary
