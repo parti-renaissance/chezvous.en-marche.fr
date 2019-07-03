@@ -6,7 +6,7 @@ faker.locale = 'fr';
 export default Factory.extend({
   objectID: i => i,
   name: () => faker.address.city(),
-  postal_code: () => faker.address.zipCode(),
+  postal_code: () => [faker.address.zipCode()],
   insee_code: () => faker.address.zipCode(),
   department: () => faker.random.number(100),
   coordinates: () => ([
