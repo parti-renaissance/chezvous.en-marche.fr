@@ -39,4 +39,8 @@ export default {
     label: "Conversion de la surface agricole en Bio",
     template: "Dans votre département, {{hectares_bio}} hectares sont désormais cultivés en agriculture biologique, ou sont en cours de conversion. C’est {{progression}} de plus qu’en 2017."
   },
+  prime_conversion_automobile: {
+    label: "Prime à la conversion automobile",
+    template: "Dans votre département, {{nombre_beneficiaires}} personnes ont pu bénéficier d’une prime à la conversion automobile d’un montant moyen de {{montant_moyen}} euro."
+  },
 };
