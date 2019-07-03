@@ -100,7 +100,8 @@ jobs:
 
   deploy-static-prod:
     environment:
-      ENV: PROD
+      ENV: STAGING
+      STAGING_GCLOUD_BUCKET: "gs://chezvous.en-marche.fr"
     <<: *deploy_static
 
   deploy-static-dev:
