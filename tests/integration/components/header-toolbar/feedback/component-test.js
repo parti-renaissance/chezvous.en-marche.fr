@@ -19,7 +19,7 @@ module('Integration | Component | header-toolbar/feedback', function(hooks) {
 
   test('twitter shares', async function() {
     const TITLE = 'Page Title';
-    const VIA = 'EnMarche';
+    const VIA = 'enmarchefr';
 
     this.mock(window)
       .expects('open')
@@ -54,4 +54,16 @@ module('Integration | Component | header-toolbar/feedback', function(hooks) {
 
     await click('[data-test-share-telegram]');
   });
+
+  test('email feedback', async function() {
+    const SUBJECT = "Signalement d'une erreur sur Ce qui a changé près de chez vous";
+    const BODY = `Je souhaite signaler une erreur sur ${window.location}`;
+    this.mock(window)
+      .expects('open')
+      .withArgs(`mailto:idees@en-marche.fr?subject=${encodeURIComponent(SUBJECT)}&body=${encodeURIComponent(BODY)}`);
+
+    await render(hbs`<HeaderToolbar::feedback />`);
+
+    await click('[data-test-report]');
+  })
 });

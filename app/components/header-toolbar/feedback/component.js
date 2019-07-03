@@ -17,19 +17,32 @@ const SERVICE_MAP = {
   facebook: {
     base: 'https://www.facebook.com/sharer.php',
     getParams(u) {
-      return filter({u});
+      return `?${filter({u})}`;
     }
   },
   twitter: {
     base: 'https://twitter.com/intent/tweet',
     getParams(url, params = {}) {
-      return filter({...params, url});
+      return `?${filter({...params, url})}`;
     }
   },
   telegram: {
     base: 'https://telegram.me/share/url',
     getParams(url, params = {}) {
-      return filter({...params, url});
+      return `?${filter({...params, url})}`;
+    }
+  },
+  email: {
+    base: 'mailto:',
+    getParams(url, params = {}) {
+      let { body, email } = params;
+
+      if (typeof body === 'string') {
+        body = body.replace('{{URL}}', window.location.toString());
+      }
+
+      delete params.email;
+      return `${email}?${filter({...params, body})}`
     }
   }
 };
@@ -52,7 +65,7 @@ export default class HeaderFeedback extends Component {
 
     const currentURL = window.location.toString();
     const serviceOptions = SERVICE_MAP[service].getParams(currentURL, params);
-    const shareWindowLocation = `${SERVICE_MAP[service].base}?${serviceOptions}`;
+    const shareWindowLocation = `${SERVICE_MAP[service].base}${serviceOptions}`;
 
     const openedWindow = window.open(shareWindowLocation, 'share window', optionString);
 
