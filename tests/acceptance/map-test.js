@@ -63,5 +63,7 @@ module('Acceptance | map', function(hooks) {
     await click('[data-test-city-search-submit-button]');
 
     assert.equal(currentURL(), '/map/normandy');
+
+    assert.dom('.city-search-modal').doesNotExist();
   });
 });

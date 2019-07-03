@@ -53,6 +53,20 @@ export default class Map extends Component {
   didInsertElement() {
     super.didInsertElement(...arguments);
 
+    this.renderMap();
+  }
+
+  didUpdateAttrs() {
+    super.didUpdateAttrs(...arguments);
+
+    if (this.map) {
+      this.map.remove();
+    }
+
+    this.renderMap();
+  }
+
+  renderMap() {
     this.map = new mapboxgl.Map({
       container: 'map-ui',
       style: 'mapbox://styles/mapbox/light-v9',

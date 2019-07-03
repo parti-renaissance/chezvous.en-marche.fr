@@ -10,6 +10,7 @@ export default class HeaderToolbar extends Component {
 
   @action
   goToCity(city) {
+    this.set('showSearch', false);
     this.router.transitionTo('map.city', city);
   }
 }
