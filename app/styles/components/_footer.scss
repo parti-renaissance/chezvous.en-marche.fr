@@ -1,0 +1,42 @@
+.footer {
+  font-family: $font-roboto;
+  padding: 0 15px;
+  margin-bottom: 25px;
+  color: $darkgray;
+}
+
+.footer-body {
+  opacity: 0.5;
+  font-size: 14px;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 600px;
+
+  text-align: center;
+
+  @include media(">=medium") {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: center;
+  }
+
+  > a {
+    display: block;
+    padding: 0 5px;
+    margin-bottom: 15px;
+
+    transition: color 125ms ease;
+    color: $darkgray;
+
+    text-decoration: none;
+
+    &:hover {
+      color: black;
+    }
+
+    @include media(">=medium") {
+      margin-bottom: 0;
+    }
+  }
+}
