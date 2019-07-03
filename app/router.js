@@ -8,7 +8,8 @@ const Router = EmberRouter.extend({
 
 Router.map(function() {
   this.route('map', function() {
-    this.route('city', {path: ':insee_code'});
+    // eslint-disable-next-line ember/routes-segments-snake-case
+    this.route('city', {path: ':inseeCode'});
   });
 });
 
