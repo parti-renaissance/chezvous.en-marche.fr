@@ -26,13 +26,13 @@
     padding: 0 5px;
     margin-bottom: 15px;
 
-    transition: color 125ms ease;
+    transition: opacity 125ms ease;
     color: $darkgray;
 
     text-decoration: none;
 
     &:hover {
-      color: black;
+      opacity: 1;
     }
 
     @include media(">=medium") {
