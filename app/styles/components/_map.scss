@@ -1,8 +1,15 @@
 .map {
   position: relative;
 
+  margin-bottom: 30px;
+
+  @include media('>=medium') {
+    margin-bottom: 40px;
+  }
+
   @include media('>=large') {
     display: flex;
+    margin-bottom: 50px;
   }
 }
 
