@@ -30,7 +30,7 @@ module('Acceptance | map', function(hooks) {
         type: "other_type",
         coordinates: [ 48.6815276, 7.8407641 ]
       }],
-      summary: [{
+      measures: [{
         type: "creation_force_police_securite_quotidien",
       }, {
         type: "total_nouvelles_maisons_service_au_public_departement",

@@ -1,6 +1,6 @@
 export default {
-  new_public_house: {
-    label: "Création d'une maison de service au public",
+  dedoublement_classes: {
+    label: "Dédoublement des classes",
     color: 'azure',
   },
 };

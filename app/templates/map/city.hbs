@@ -1,7 +1,7 @@
 <HeaderToolbar/>
 
 <main class="city-detail">
-  <h2 class="city-subhead">c’est arrivé près de chez vous</h2>
+  <h2 class="city-subhead">ce qui a changé près de chez vous</h2>
 
   <h1 class="city-heading" data-test-city-name>
     {{model.name}}
@@ -20,7 +20,7 @@
     <h2 class="city-summary-subhead">Les Détails</h2>
 
     <div class="city-summary__grid">
-      {{#each model.summary as |summary|}}
+      {{#each model.measures as |summary|}}
         <Summary
           @summary={{summary}}
           data-test-summary
