@@ -1,7 +1,7 @@
 export default {
   suppression_taxe_habitation: {
     label: "Suppression de la taxe d’habitation",
-    template: "Pour {{nombre_foyers}} foyers dans votre commune, la taxe d'habitation est en baisse de {{baisse_2018}} euros en 2018. Elle baissera de {{baisse_2019}} euros supplémentaires en 2019 et à nouveau en 2020. Au total, votre taxe d'habitation a donc baissé de {{baisse_total}} euros. Pour savoir si vous êtes éligibles à la baisse rendez vous <a href=\"#\">ici</a>.",
+    template: "Pour {{nombre_foyers}} foyers dans votre commune, la taxe d'habitation est en baisse de {{baisse_2018}} euros en 2018. Elle baissera de {{baisse_2019}} euros supplémentaires en 2019 et à nouveau en 2020. Au total, votre taxe d'habitation a donc baissé de {{baisse_total}} euros. Pour savoir si vous êtes éligibles à la baisse rendez vous <a href=\"https://www.impots.gouv.fr/portail/simulateur-de-la-reforme-de-la-taxe-dhabitation-pour-2019\">ici</a>.",
   },
   couverture_fibre: {
     label: "Couverture en fibre de tout le territoire",
@@ -17,7 +17,7 @@ export default {
   },
   baisse_nombre_chomeurs: {
     label: "Baisse du nombre de chômeurs",
-    template: "\"Depuis mai 2017, il y a {{baisse_ville}} chômeurs en moins dans votre commune. Depuis mai 2017, il y a {{baisse_departement}} chômeurs en moins dans votre département."
+    template: "Depuis mai 2017, il y a {{baisse_ville}} chômeurs en moins dans votre commune. Depuis mai 2017, il y a {{baisse_departement}} chômeurs en moins dans votre département."
   },
   pass_culture: {
     label: "Mise en Place du Pass Culture",
