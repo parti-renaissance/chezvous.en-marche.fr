@@ -10,17 +10,17 @@ const client = algoliasearch(config.algoliaApp, config.algoliaApiKey);
 const cityIndex = client.initIndex(config.cityIndex);
 
 export default class CityRoute extends Route {
-  model({ insee_code }) {
+  model({ inseeCode }) {
     const SEARCH_PARAMS = {
-      query: insee_code,
-      restrictSearchableAttributes: ['insee_code'],
+      query: inseeCode,
+      restrictSearchableAttributes: ['inseeCode'],
     };
     return cityIndex.search(SEARCH_PARAMS).then(res => {
       if (res.hits.length) {
         return res.hits[0];
       } else {
-        const NOT_FOUND = new Error(`City with Insee Code ${insee_code} not found`);
-        NOT_FOUND.insee_code = insee_code;
+        const NOT_FOUND = new Error(`City with Insee Code ${inseeCode} not found`);
+        NOT_FOUND.inseeCode = inseeCode;
         throw NOT_FOUND;
       }
     })
@@ -28,7 +28,7 @@ export default class CityRoute extends Route {
 
   @action
   error(e) {
-    console.log('no bueno', e.insee_code, e); // eslint-disable-line
+    console.log('no bueno', e.inseeCode, e); // eslint-disable-line
   }
 
   @action

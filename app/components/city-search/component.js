@@ -35,7 +35,7 @@ export default class CitySearch extends Component {
 
   // returns an array
   @filter('cities', function(city) {
-    return city.insee_code === this.insee_code;
+    return city.inseeCode === this.inseeCode;
   }) filteredCity
 
   @restartableTask
@@ -46,7 +46,7 @@ export default class CitySearch extends Component {
     // first city is viewable in the dropdown
     // make it the selected city as well
     if (cities.length) {
-      this.set('insee_code', cities[0].insee_code);
+      this.set('inseeCode', cities[0].inseeCode);
     }
   }
 

@@ -46,11 +46,11 @@ module('Integration | Component | city-search', function(hooks) {
     const cityIndex = {
       search: this.stub().resolves({
         hits: [{
-          insee_code: 'foo',
+          inseeCode: 'foo',
         }, {
-          insee_code: 'bar',
+          inseeCode: 'bar',
         }, {
-          insee_code: 'baz'
+          inseeCode: 'baz'
         }],
       })
     };
@@ -69,7 +69,7 @@ module('Integration | Component | city-search', function(hooks) {
   test('if there is only one city, disable the dropdown', async function(assert) {
     assert.expect(2);
 
-    const CITY = { insee_code: 'foo' };
+    const CITY = { inseeCode: 'foo' };
     const CITY_INDEX = {
       search: this.stub().resolves({
         hits: [CITY],
@@ -92,10 +92,10 @@ module('Integration | Component | city-search', function(hooks) {
 
     const CITIES = [{
       name: 'foo',
-      insee_code: '123'
+      inseeCode: '123'
     }, {
       name: 'bar',
-      insee_code: '456'
+      inseeCode: '456'
     }];
     const ON_SUBMIT = city => assert.deepEqual(city, CITIES[1], 'should pass in selected city');
     this.setProperties({ CITIES, ON_SUBMIT });
@@ -110,10 +110,10 @@ module('Integration | Component | city-search', function(hooks) {
 
     const CITIES = [{
       name: 'foo',
-      insee_code: '123'
+      inseeCode: '123'
     }, {
       name: 'bar',
-      insee_code: '456'
+      inseeCode: '456'
     }];
     const CITY_INDEX = {
       search: this.stub().resolves({

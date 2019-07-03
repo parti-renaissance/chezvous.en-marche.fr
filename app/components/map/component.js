@@ -94,8 +94,10 @@ export default class Map extends Component {
       BOUNDS.extend(coords);
     });
 
-    // fit to max bounds with a bit of padding
-    this.map.fitBounds(BOUNDS, {padding: 50});
+    if (!BOUNDS.isEmpty()) {
+      // fit to max bounds with a bit of padding
+      this.map.fitBounds(BOUNDS, {padding: 50});
+    }
   }
 
   willDestroyElement() {

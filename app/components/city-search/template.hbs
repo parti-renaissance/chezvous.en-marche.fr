@@ -25,11 +25,11 @@
     data-test-city-search-select
     id="ville"
     disabled={{or (not this.cities) (eq this.cities.length 1)}}
-    onchange={{action (mut this.insee_code) value="target.value"}}
+    onchange={{action (mut this.inseeCode) value="target.value"}}
   >
     {{#if this.cities}}
       {{#each this.cities as |city|}}
-        <option value={{city.insee_code}}>{{city.name}}</option>
+        <option value={{city.inseeCode}}>{{city.name}}</option>
       {{/each}}
     {{else}}
       <option value=''>Ville</option>
