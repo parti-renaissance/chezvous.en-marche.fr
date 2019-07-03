@@ -14,7 +14,6 @@ module('Integration | Component | header-toolbar/feedback', function(hooks) {
     assert.dom('[data-test-share-twitter]').exists();
     assert.dom('[data-test-share-facebook]').exists();
     assert.dom('[data-test-share-telegram]').exists();
-    assert.dom('[data-test-rss]').exists();
   });
 
   test('twitter shares', async function() {
