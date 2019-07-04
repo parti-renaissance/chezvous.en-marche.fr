@@ -11,7 +11,7 @@
     {{model.postalCodes.firstObject}} - {{model.department.name}}
   </p>
 
-  {{#if model.markers.length}}
+  {{#if model.markers}}
     <Map
       @coordinates={{model.coordinates}}
       @markers={{model.markers}}
