@@ -5,4 +5,11 @@
   font-style: italic;
   letter-spacing: -0.5px;
   color: black;
+  transition: opacity 0.3s;
+
+  &:hover {
+      text-decoration: none;
+      transition: opacity 0.3s;
+      opacity: 0.4;
+  }
 }
