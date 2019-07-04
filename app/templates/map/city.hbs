@@ -8,7 +8,7 @@
   </h1>
 
   <p class="city-kicker">
-    {{model.inseeCode}}
+    {{model.postalCodes.firstObject}} - {{model.department.name}}
   </p>
 
   {{#if model.markers.length}}
