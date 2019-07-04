@@ -1,12 +1,11 @@
 .footer {
   font-family: $font-roboto;
   padding: 0 15px;
-  margin-bottom: 25px;
+  margin: 25px 0;
   color: $darkgray;
 }
 
 .footer-body {
-  opacity: 0.5;
   font-size: 14px;
   margin: 0 auto;
   width: 100%;
@@ -22,6 +21,7 @@
   }
 
   > a {
+    opacity: 0.5;
     display: block;
     padding: 0 5px;
     margin-bottom: 15px;

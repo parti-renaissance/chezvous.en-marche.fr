@@ -214,3 +214,8 @@
 .color--marigold {
   color: $marigold;
 }
+
+.map-ui .mapboxgl-ctrl-bottom-left,
+.map-ui .mapboxgl-ctrl-bottom-right {
+    display: none;
+}

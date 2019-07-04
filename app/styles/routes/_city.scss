@@ -13,9 +13,14 @@
 
 .city-kicker {
   font-family: $font-roboto;
-  font-size: 16px;
+  font-size: 20px;
   font-weight: normal;
   color: $gray;
+  margin: 10px 0 25px 0;
+}
+
+.city-summary {
+    margin-bottom: 80px;
 }
 
 .city-summary-subhead {
