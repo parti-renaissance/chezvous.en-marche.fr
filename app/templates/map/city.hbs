@@ -11,10 +11,12 @@
     {{model.inseeCode}}
   </p>
 
-  <Map
-    @coordinates={{model.coordinates}}
-    @markers={{model.markers}}
-  />
+  {{#if model.markers.length}}
+    <Map
+      @coordinates={{model.coordinates}}
+      @markers={{model.markers}}
+    />
+  {{/if}}
 
   <div class="city-summary">
     <h2 class="city-summary-subhead">Les Détails</h2>
