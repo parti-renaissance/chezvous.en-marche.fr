@@ -67,4 +67,14 @@ export default {
     label: "Prime à la conversion automobile",
     template: "Au niveau départemental, <span>{{nombre_beneficiaires}}</span> personnes ont pu bénéficier d’une prime à la conversion automobile d’un montant moyen de <span>{{montant_moyen}}</span> euros."
   },
+  dedoublement_classes: {
+    label: "Dédoublement de classe",
+    template: function (payload) {
+      if (1 === payload.total_cp_ce1) {
+        return 'Dans votre commune, <span>1</span> classe de CP ou de CE1 a été dédoublée';
+      } else {
+        return 'Dans votre commune, <span>'+payload.total_cp_ce1+'</span> classes de CP ou de CE1 ont été dédoublées';
+      }
+    }
+  }
 };
