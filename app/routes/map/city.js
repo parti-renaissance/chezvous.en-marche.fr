@@ -12,7 +12,8 @@ const cityIndex = client.initIndex(config.cityIndex);
 export default class CityRoute extends Route {
   model({ inseeCode }) {
     const SEARCH_PARAMS = {
-      query: inseeCode
+      query: inseeCode,
+      restrictSearchableAttributes: ['inseeCode']
     };
     return cityIndex.search(SEARCH_PARAMS).then(res => {
       if (res.hits.length) {

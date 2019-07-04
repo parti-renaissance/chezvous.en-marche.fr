@@ -1,6 +1,6 @@
 .header-toolbar {
   background-color: $pale-gray;
-  margin-bottom: 20px;
+  margin-bottom: 50px;
 
   &__wrapper {
     padding: 20px;
@@ -47,7 +47,7 @@
 
 .header-toolbar__right {
   @include media('>=large') {
-    flex-basis: 350px;
+    flex-basis: 330px;
   }
 }
 
@@ -95,8 +95,7 @@
     font-size: 16px;
     line-height: 1.5;
     color: black;
-
-    margin-right: 15px;
+    margin-right: 20px;
   }
 
   &__share-group {

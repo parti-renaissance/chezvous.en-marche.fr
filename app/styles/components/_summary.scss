@@ -31,3 +31,16 @@
   line-height: 1.44;
   color: black;
 }
+
+.summary-data {
+  font-family: $font-roboto;
+  font-size: 18px;
+  color: $darkgray;
+  margin: 8px 0 0 0;
+
+  span {
+      font-weight: 600;
+      color: #000;
+  }
+  
+}

@@ -8,13 +8,15 @@
   </h1>
 
   <p class="city-kicker">
-    {{model.inseeCode}}
+    {{model.postalCodes.firstObject}} - {{model.department.name}}
   </p>
 
-  <Map
-    @coordinates={{model.coordinates}}
-    @markers={{model.markers}}
-  />
+  {{#if model.markers}}
+    <Map
+      @coordinates={{model.coordinates}}
+      @markers={{model.markers}}
+    />
+  {{/if}}
 
   <div class="city-summary">
     <h2 class="city-summary-subhead">Les Détails</h2>
