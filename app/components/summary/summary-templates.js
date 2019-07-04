@@ -5,7 +5,19 @@ export default {
   },
   couverture_fibre: {
     label: "Couverture en fibre de tout le territoire",
-    template: "Dans votre commune, il y a désormais <span>{{nombre_locaux_raccordes_ville}}</span> locaux raccordés au Très Haut Débit, soit <span>{{hausse_depuis_2017_ville}}</span> de plus qu'en mai 2017. Au niveau départemental, il y a désormais <span>{{nombre_locaux_raccordes_departement}}</span> locaux raccordés au Très Haut Débit, soit <span>{{hausse_depuis_2017_departement}}</span> de plus qu'en mai 2017."
+    template: function (payload) {
+      let str = '';
+
+      if (0 < payload.nombre_locaux_raccordes_ville && 0 < payload.hausse_depuis_2017_ville) {
+        str = 'Dans votre commune, il y a désormais <span>'+payload.nombre_locaux_raccordes_ville+'</span> locaux raccordés au Très Haut Débit, soit <span>'+payload.hausse_depuis_2017_ville+'</span> de plus qu\'en mai 2017.';
+      }
+
+      if (0 < payload.nombre_locaux_raccordes_departement && 0 < payload.hausse_depuis_2017_departement) {
+        str = 'Au niveau départemental, il y a désormais <span>'+payload.nombre_locaux_raccordes_departement+'</span> locaux raccordés au Très Haut Débit, soit <span>'+payload.hausse_depuis_2017_departement+'</span> de plus qu\'en mai 2017.';
+      }
+
+      return str;
+    }
   },
   maison_service_accueil_public: {
     label: "Généralisation des maisons de service et d'accueil du public",
@@ -17,7 +29,19 @@ export default {
   },
   baisse_nombre_chomeurs: {
     label: "Baisse du nombre de chômeurs",
-    template: "Depuis mai 2017, il y a <span>{{baisse_ville}}</span> chômeurs en moins dans votre commune. Depuis mai 2017, il y a <span>{{baisse_departement}}</span> chômeurs en moins au niveau départemental."
+    template: function (payload) {
+      let str = '';
+
+      if (0 < payload.baisse_ville) {
+        str += 'Depuis mai 2017, il y a <span>'+payload.baisse_ville+'</span> chômeurs en moins dans votre commune.';
+      }
+
+      if (0 < payload.baisse_departement) {
+        str += 'Depuis mai 2017, il y a <span>'+payload.baisse_departement+'</span> chômeurs en moins au niveau départemental.';
+      }
+
+      return str;
+    }
   },
   pass_culture: {
     label: "Mise en Place du Pass Culture",
