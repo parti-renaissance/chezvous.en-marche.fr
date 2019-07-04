@@ -27,9 +27,9 @@ export default {
     label: "Emplois francs",
     template: "Un quartier de votre commune est éligible au dispositif des emplois francs."
   },
-  creation_police_securite_quotidien: {
-    label: "Création d'une force de police de sécurité du quotidien",
-    template: "La police de sécurité du quotidien a été déployée dans votre ville."
+  quartier_reconquete_republicaine: {
+    label: "Quartier de Reconquête Républicaine",
+    template: "Un Quartier de Reconquête Républicaine a été déployé dans votre ville."
   },
   cheque_energie: {
     label: "Chèque énergie",
@@ -37,7 +37,7 @@ export default {
   },
   conversion_surface_agricole_bio: {
     label: "Conversion de la surface agricole en Bio",
-    template: "Dans votre département, {{hectares_bio}} hectares sont désormais cultivés en agriculture biologique, ou sont en cours de conversion. C’est {{progression}} de plus qu’en 2017."
+    template: "Dans votre département, {{hectares_bio}} hectares sont désormais cultivés en agriculture biologique, ou sont en cours de conversion. C’est {{progression}}% de plus qu’en 2017."
   },
   prime_conversion_automobile: {
     label: "Prime à la conversion automobile",
