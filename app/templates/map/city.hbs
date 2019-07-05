@@ -13,7 +13,7 @@
 
   {{#if model.markers}}
     <Map
-      @coordinates={{model.coordinates}}
+      @coordinates={{model._geoloc}}
       @markers={{model.markers}}
     />
   {{/if}}

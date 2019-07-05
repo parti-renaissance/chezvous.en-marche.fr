@@ -1,22 +1,34 @@
+function formatNumber(num) {
+  return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ')
+}
+
 export default {
   suppression_taxe_habitation: {
     label: "Suppression de la taxe d’habitation",
-    template: "Pour <span>{{nombre_foyers}}</span> foyers dans votre commune, la taxe d'habitation a baissé de <span>{{baisse_2018}}</span> euros en 2018. Elle baissera de <span>{{baisse_2019}}</span> euros supplémentaires en 2019 et à nouveau en 2020. Au total, votre taxe d'habitation va donc baisser de <span>{{baisse_total}}</span> euros. Pour savoir si vous êtes éligibles, rendez-vous <a href=\"https://www.impots.gouv.fr/portail/simulateur-de-la-reforme-de-la-taxe-dhabitation-pour-2019\" target=\"_blank\">ici</a>.",
+    template: function (payload) {
+      return 'Pour <span>'+formatNumber(payload.nombre_foyers)+'</span> foyers dans votre commune, '+
+          'la taxe d\'habitation a baissé de <span>'+formatNumber(payload.baisse_2018)+'</span> euros en 2018. '+
+          'Elle baissera de <span>'+formatNumber(payload.baisse_2019)+'</span> euros supplémentaires en 2019 et à nouveau en 2020. '+
+          'Au total, votre taxe d\'habitation va donc baisser de <span>'+formatNumber(payload.baisse_total)+'</span> euros. '+
+          'Pour savoir si vous êtes éligibles, rendez-vous <a href="https://www.impots.gouv.fr/portail/simulateur-de-la-reforme-de-la-taxe-dhabitation-pour-2019" target="_blank">ici</a>.';
+    }
   },
   couverture_fibre: {
     label: "Couverture en fibre de tout le territoire",
     template: function (payload) {
-      let str = '';
+      let str = [];
 
-      if (0 < payload.nombre_locaux_raccordes_ville && 0 < payload.hausse_depuis_2017_ville) {
-        str = 'Dans votre commune, il y a désormais <span>'+payload.nombre_locaux_raccordes_ville+'</span> locaux raccordés au Très Haut Débit, soit <span>'+payload.hausse_depuis_2017_ville+'</span> de plus qu\'en mai 2017.';
+      if (payload.nombre_locaux_raccordes_ville && payload.hausse_depuis_2017_ville) {
+        str.push('Dans votre commune, il y a désormais <span>'+formatNumber(payload.nombre_locaux_raccordes_ville)+'</span> locaux raccordés au Très Haut Débit, '+
+        'soit <span>'+formatNumber(payload.hausse_depuis_2017_ville)+'</span> de plus qu\'en mai 2017.');
       }
 
-      if (0 < payload.nombre_locaux_raccordes_departement && 0 < payload.hausse_depuis_2017_departement) {
-        str = 'Au niveau départemental, il y a désormais <span>'+payload.nombre_locaux_raccordes_departement+'</span> locaux raccordés au Très Haut Débit, soit <span>'+payload.hausse_depuis_2017_departement+'</span> de plus qu\'en mai 2017.';
+      if (payload.nombre_locaux_raccordes_departement && payload.hausse_depuis_2017_departement) {
+        str.push('Au niveau départemental, il y a désormais <span>'+formatNumber(payload.nombre_locaux_raccordes_departement)+'</span> locaux raccordés au Très Haut Débit, '+
+            'soit <span>'+formatNumber(payload.hausse_depuis_2017_departement)+'</span> de plus qu\'en mai 2017.');
       }
 
-      return str;
+      return str.join(' ');
     }
   },
   maison_service_accueil_public: {
@@ -25,27 +37,37 @@ export default {
   },
   creation_entreprises: {
     label: "Création nettes d'entreprises",
-    template: "Depuis mai 2017, il y a <span>{{entreprises}}</span> entreprises de plus dans votre commune."
-  },
-  baisse_nombre_chomeurs: {
-    label: "Baisse du nombre de chômeurs",
     template: function (payload) {
-      let str = '';
+      let str = 'Depuis mai 2017, il y a <span>'+formatNumber(payload.entreprises)+'</span> entreprises de plus dans votre commune';
 
-      if (0 < payload.baisse_ville) {
-        str += 'Depuis mai 2017, il y a <span>'+payload.baisse_ville+'</span> chômeurs en moins dans votre commune.';
+      if (payload.micro_entreprises) {
+        str += ', dont <span>'+formatNumber(payload.micro_entreprises)+'</span> micro-entreprises';
       }
 
-      if (0 < payload.baisse_departement) {
-        str += 'Depuis mai 2017, il y a <span>'+payload.baisse_departement+'</span> chômeurs en moins au niveau départemental.';
-      }
+      str += '.';
 
       return str;
     }
   },
+  baisse_nombre_chomeurs: {
+    label: "Baisse du nombre de chômeurs",
+    template: function (payload) {
+      let str = [];
+
+      if (payload.baisse_ville) {
+        str.push('Depuis mai 2017, il y a <span>'+formatNumber(payload.baisse_ville)+'</span> chômeurs en moins dans votre commune.');
+      }
+
+      if (payload.baisse_departement) {
+        str.push('Depuis mai 2017, il y a <span>'+formatNumber(payload.baisse_departement)+'</span> chômeurs en moins au niveau départemental.');
+      }
+
+      return str.join(' ');
+    }
+  },
   pass_culture: {
     label: "Mise en Place du Pass Culture",
-    template: "Dans votre commune, tous les jeunes de 18 ans peuvent expérimenter le PASS culture : c’est <span>500€</span> pour s’offrir des activités culturelles et artistiques."
+    template: "Dans votre commune, tous les jeunes de 18 ans peuvent expérimenter le PASS culture : c’est une réserve de <span>500€</span> pour s’offrir des activités culturelles et artistiques."
   },
   emplois_francs: {
     label: "Emplois francs",
@@ -57,7 +79,9 @@ export default {
   },
   cheque_energie: {
     label: "Chèque énergie",
-    template: "Au niveau départemental, <span>{{nombre_beneficiaires}}</span> personnes bénéficient d’un chèque énergie, pour un montant moyen de <span>200</span> euros."
+    template: function (payload) {
+      return 'Au niveau départemental, <span>'+formatNumber(payload.nombre_beneficiaires)+'</span> personnes bénéficient d’un chèque énergie, pour un montant moyen de <span>200</span> euros.';
+    }
   },
   conversion_surface_agricole_bio: {
     label: "Conversion de la surface agricole en Bio",
