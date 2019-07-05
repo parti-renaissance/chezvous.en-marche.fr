@@ -1,7 +1,7 @@
 export default {
   suppression_taxe_habitation: {
     label: "Suppression de la taxe d’habitation",
-    template: "Pour <span>{{nombre_foyers}}</span> foyers dans votre commune, la taxe d'habitation va donc baisser de <span>{{baisse_2018}}</span> euros en 2018. Elle baissera de <span>{{baisse_2019}}</span> euros supplémentaires en 2019 et à nouveau en 2020. Au total, votre taxe d'habitation a donc baissé de <span>{{baisse_total}}</span> euros. Pour savoir si vous êtes éligibles, rendez-vous <a href=\"https://www.impots.gouv.fr/portail/simulateur-de-la-reforme-de-la-taxe-dhabitation-pour-2019\" target=\"_blank\">ici</a>.",
+    template: "Pour <span>{{nombre_foyers}}</span> foyers dans votre commune, la taxe d'habitation a baissé de <span>{{baisse_2018}}</span> euros en 2018. Elle baissera de <span>{{baisse_2019}}</span> euros supplémentaires en 2019 et à nouveau en 2020. Au total, votre taxe d'habitation va donc baisser de <span>{{baisse_total}}</span> euros. Pour savoir si vous êtes éligibles, rendez-vous <a href=\"https://www.impots.gouv.fr/portail/simulateur-de-la-reforme-de-la-taxe-dhabitation-pour-2019\" target=\"_blank\">ici</a>.",
   },
   couverture_fibre: {
     label: "Couverture en fibre de tout le territoire",
@@ -24,7 +24,7 @@ export default {
     template: "Une Maison de service et d’accueil du public a ouverte dans votre commune."
   },
   creation_entreprises: {
-    label: "Créations nettes d’entreprises dans la commune",
+    label: "Création nettes d'entreprises",
     template: "Depuis mai 2017, il y a <span>{{entreprises}}</span> entreprises de plus dans votre commune."
   },
   baisse_nombre_chomeurs: {
@@ -71,9 +71,9 @@ export default {
     label: "Dédoublement de classe",
     template: function (payload) {
       if (1 === payload.total_cp_ce1) {
-        return 'Dans votre commune, <span>1</span> classe de CP ou de CE1 a été dédoublée';
+        return 'Dans votre commune, <span>1</span> classe de CP ou de CE1 a été dédoublée.';
       } else {
-        return 'Dans votre commune, <span>'+payload.total_cp_ce1+'</span> classes de CP ou de CE1 ont été dédoublées';
+        return 'Dans votre commune, <span>'+payload.total_cp_ce1+'</span> classes de CP ou de CE1 ont été dédoublées.';
       }
     }
   }
