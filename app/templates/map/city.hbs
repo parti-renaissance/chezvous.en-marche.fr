@@ -11,6 +11,9 @@
     {{model.postalCodes.firstObject}} - {{model.department.name}}
   </p>
 
+  <CitiesNearby
+    @coordinates={{model._geoloc}}
+  />
   {{#if model.markers}}
     <Map
       @coordinates={{model._geoloc}}
