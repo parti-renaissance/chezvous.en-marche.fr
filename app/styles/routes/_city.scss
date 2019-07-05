@@ -19,6 +19,24 @@
   margin: 10px 0 25px 0;
 }
 
+.city-nearby {
+  font-size: 16px;
+  font-weight: normal;
+  font-family: $font-roboto;
+  margin-bottom: 15px;
+  margin-top: 10px;
+
+  a {
+    font-family: $font-roboto;
+    background-color: #ebf4ff;
+    color: #0496ff;
+    border-radius: 13px;
+    margin-right: 10px;
+    padding: 5px 12px;
+    font-size: 14px;
+  }
+}
+
 .city-summary {
     margin-bottom: 80px;
 }
