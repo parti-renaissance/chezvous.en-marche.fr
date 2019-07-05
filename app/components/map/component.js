@@ -14,7 +14,10 @@ export default class Map extends Component {
 
   TEMPLATES = TEMPLATES
   ZOOM_LEVEL = 14
-  coordinates = []
+  coordinates = {
+    "lat": null,
+    "lng": null
+  }
   markers = []
 
   concreteMarkers = []
