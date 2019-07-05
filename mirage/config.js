@@ -12,7 +12,7 @@ export default function() {
       .map(p => p.split('='))
       .reduce((params, [key, val]) => {params[key] = val; return params}, {});
 
-    if (params.restrictSearchableAttributes) {
+    if (params.restrictSearchableAttributes && JSON.parse(params.restrictSearchableAttributes).includes('inseeCode')) {
       // looking at one city
       return schema.cityHits.where({ insee_code: params.query });
     } else {

@@ -34,7 +34,7 @@ module('Integration | Component | city-search', function(hooks) {
     this.mock(cityIndex)
       .expects('search')
       .once()
-      .withArgs({ query: QUERY })
+      .withArgs({ query: QUERY, restrictSearchableAttributes: ['name', 'postalCodes'] })
       .resolves({hits: []});
 
     this.set('cityIndex', cityIndex);

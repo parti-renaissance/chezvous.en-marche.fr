@@ -58,7 +58,13 @@ export default class CitySearch extends Component {
 
     // wait DEBOUNCE_MS before hitting the server again
     yield timeout(this.DEBOUNCE_MS);
-    let response = yield this.cityIndex.search({query});
+
+    const SEARCH_PARAMS = {
+      query: query,
+      restrictSearchableAttributes: ['name', 'postalCodes']
+    };
+
+    let response = yield this.cityIndex.search(SEARCH_PARAMS);
     return response;
   }
 }
