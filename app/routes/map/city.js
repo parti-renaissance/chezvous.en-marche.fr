@@ -26,7 +26,12 @@ export default class CityRoute extends Route {
         };
 
         return cityIndex.search(SEARCH_NEARBY_PARAMS).then(res => {
-          city.nearbyCities = res.hits;
+          let nearbyCities = res.hits;
+
+          // first result is the current city
+          nearbyCities.shift();
+
+          city.nearbyCities = nearbyCities;
 
           return city;
         });
