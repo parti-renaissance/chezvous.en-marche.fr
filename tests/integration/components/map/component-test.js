@@ -33,7 +33,10 @@ module('Integration | Component | map', function(hooks) {
     }, {
       coordinates: [77, -62],
     }];
-    const COORDS = [20, 70];
+    const COORDS = {
+        "lat": 20,
+        "lng": 70
+    };
 
     this.setProperties({ MARKERS, COORDS, ZOOM });
 
@@ -42,7 +45,7 @@ module('Integration | Component | map', function(hooks) {
       .withArgs({
         container: 'map-ui',
         style: 'mapbox://styles/mapbox/light-v9',
-        center: [COORDS[1], COORDS[0]],
+        center: [COORDS.lng, COORDS.lat],
         zoom: ZOOM,
       })
       .returns({
