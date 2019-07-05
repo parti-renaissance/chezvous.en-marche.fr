@@ -28,12 +28,11 @@ export default class Summary extends Component {
     let { payload = {} } = this.summary
     let { template } = this.metadata;
 
-    Object.keys(payload).forEach(key => {
-      if (typeof template === "function") {
-        template = template(payload);
+    if (typeof template === "function") {
+      return template(payload);
+    }
 
-        return;
-      }
+    Object.keys(payload).forEach(key => {
       template = template.replace(`{{${key}}}`, payload[key]);
     });
 

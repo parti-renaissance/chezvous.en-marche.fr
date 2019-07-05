@@ -14,7 +14,7 @@ export default class Map extends Component {
 
   TEMPLATES = TEMPLATES
   ZOOM_LEVEL = 14
-  coordinates = []
+  coordinates = {}
   markers = []
 
   concreteMarkers = []
@@ -72,7 +72,7 @@ export default class Map extends Component {
       style: 'mapbox://styles/mapbox/light-v9',
       // coordinates from algolia are [lat, long]
       // mapbox expects them to be [long, lat]
-      center: [this.coordinates[1], this.coordinates[0]],
+      center: [this.coordinates.lng, this.coordinates.lat],
       zoom: this.ZOOM_LEVEL,
     });
 

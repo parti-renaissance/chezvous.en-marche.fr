@@ -9,10 +9,10 @@ export default Factory.extend({
   postal_code: () => [faker.address.zipCode()],
   insee_code: () => faker.address.zipCode(),
   department: () => faker.random.number(100),
-  coordinates: () => ([
-    48.554137,
-    7.76552
-  ]),
+  "_geoloc": () => ({
+    "lat": 48.554137,
+    "lng": 7.76552
+  }),
   markers: () => ([
     {
       "type": "new_public_house",
