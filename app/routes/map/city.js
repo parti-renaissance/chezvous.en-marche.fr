@@ -17,7 +17,19 @@ export default class CityRoute extends Route {
     };
     return cityIndex.search(SEARCH_PARAMS).then(res => {
       if (res.hits.length) {
-        return res.hits[0];
+        let city = res.hits[0];
+
+        const SEARCH_NEARBY_PARAMS = {
+          // algolia needs "lat, lng" string. (e.g. aroundLatLng: "42.39, 39.304")
+          aroundLatLng: city._geoloc.lat+', '+city._geoloc.lng,
+          hitsPerPage: 5
+        };
+
+        return cityIndex.search(SEARCH_NEARBY_PARAMS).then(res => {
+          city.nearbyCities = res.hits;
+
+          return city;
+        });
       } else {
         const NOT_FOUND = new Error(`City with Insee Code ${inseeCode} not found`);
         NOT_FOUND.inseeCode = inseeCode;
