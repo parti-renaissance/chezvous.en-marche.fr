@@ -22,7 +22,8 @@ export default class CityRoute extends Route {
         const SEARCH_NEARBY_PARAMS = {
           // algolia needs "lat, lng" string. (e.g. aroundLatLng: "42.39, 39.304")
           aroundLatLng: city._geoloc.lat+', '+city._geoloc.lng,
-          hitsPerPage: 5
+          // if we want to display 3 nearby cities, we have to ask for 4 and remove the first (current) one
+          hitsPerPage: 4
         };
 
         return cityIndex.search(SEARCH_NEARBY_PARAMS).then(res => {
