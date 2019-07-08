@@ -2,60 +2,69 @@
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
-}
-.city-subhead {
-  @include subhead;
-}
 
-.city-heading {
-  @include heading($margin-bottom: 10px);
-}
+  .city-subhead {
+    @include subhead;
+  }
 
-.city-kicker {
-  font-family: $font-roboto;
-  font-size: 20px;
-  font-weight: normal;
-  color: $gray;
-  margin: 10px 0 25px 0;
-}
+  .city-heading {
+    @include heading($margin-bottom: 10px);
+  }
 
-.city-nearby {
-  font-size: 16px;
-  font-weight: normal;
-  font-family: $font-roboto;
-  margin-bottom: 15px;
-  margin-top: 10px;
-
-  a {
+  .city-kicker {
     font-family: $font-roboto;
-    background-color: #ebf4ff;
-    color: #0496ff;
-    border-radius: 13px;
-    margin-right: 10px;
-    padding: 5px 12px;
-    font-size: 14px;
+    font-size: 20px;
+    font-weight: normal;
+    color: $gray;
+    margin: 10px 0 20px 0;
   }
-}
 
-.city-summary {
+  .city-nearby {
+    font-size: 16px;
+    font-weight: normal;
+    font-family: $font-roboto;
+    margin-bottom: 15px;
+    margin-top: 10px;
+    overflow: hidden;
+
+    span {
+      float: left;
+      margin-top: 5px;
+    }
+
+    a {
+      float: left;
+      font-family: $font-roboto;
+      background-color: #ebf4ff;
+      color: #0496ff;
+      border-radius: 13px;
+      margin: 2px 5px;
+      padding: 5px 12px;
+      font-size: 14px;
+
+    }
+  }
+
+  .city-summary {
     margin-bottom: 80px;
-}
 
-.city-summary-subhead {
-  @include subhead($margin-bottom: 34px);
-}
+    &__subhead {
+      @include subhead($margin-bottom: 25px);
+    }
 
-.city-summary__grid {
-  display: grid;
-  row-gap: 25px;
+    &__grid {
+      display: grid;
+      row-gap: 25px;
 
-  @include media('>=550px') {
-    grid-template-columns: repeat(2, 1fr);
-    grid-gap: 36px;
-  }
+      @include media('>=550px') {
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 36px;
+      }
 
-  @include media('>=large') {
-    column-gap: 68px;
-    row-gap: 36px;
+      @include media('>=large') {
+        column-gap: 68px;
+        row-gap: 36px;
+      }
+    }
   }
 }

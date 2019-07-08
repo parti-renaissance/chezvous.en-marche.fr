@@ -13,7 +13,7 @@
 
   {{#if model.nearbyCities}}
     <div class="city-nearby">
-      Aussi près de chez vous :
+      <span>Aussi près de chez vous :</span>
       {{#each model.nearbyCities as |nearbyCity|}}
         <LinkTo @route="map.city" @model={{nearbyCity.inseeCode}} class="nearby-city">
           {{nearbyCity.name}}
@@ -30,7 +30,7 @@
   {{/if}}
 
   <div class="city-summary">
-    <h2 class="city-summary-subhead">Les Détails</h2>
+    <h2 class="city-summary__subhead">Les Détails</h2>
 
     <div class="city-summary__grid">
       {{#each model.measures as |summary|}}
