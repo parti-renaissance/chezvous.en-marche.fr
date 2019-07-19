@@ -120,6 +120,14 @@
   &.azure .map-filter__input:checked {
     color: $azure;
   }
+
+  &.watermelon .map-filter__input:checked {
+    color: $watermelon;
+  }
+
+  &.marigold .map-filter__input:checked {
+    color: $marigold;
+  }
 }
 
 .map-filter__input {
