@@ -28,13 +28,23 @@
 
   transition: color 125ms ease;
 
-  &:hover {
-    color: $blue;
-  }
-
   .icon-search {
     width: 36px;
     height: 36px;
+
+    transition: fill 125ms ease;
+  }
+
+  &:hover {
+    color: $blue;
+
+    .icon-search {
+        fill: $blue;
+    }
+  }
+
+  &__label {
+      margin-left: 5px;
   }
 }
 
@@ -121,7 +131,8 @@
 
 .header-toolbar__button {
   @include button;
-
+  outline: 0;
+  
   transition: color 125ms ease;
 
   &:hover {

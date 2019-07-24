@@ -10,7 +10,8 @@
       {{action (mut showSearch) true}}
     >
       {{#if (media 'isMedium')}}
-        + Rechercher une commune
+        {{svg-jar "search"}}
+        <span class="header-search__label">Rechercher une commune</span>
       {{else}}
         {{svg-jar "search"}}
       {{/if}}
