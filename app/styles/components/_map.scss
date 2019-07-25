@@ -14,7 +14,7 @@
 }
 
 .map-ui {
-  height: 375px;
+  height: 500px;
 
   @include media('>=large') {
     flex: 1;
@@ -22,6 +22,7 @@
 
     + .map-filters {
       flex-basis: 300px;
+      padding-top: 10px;
     }
   }
 }
@@ -103,7 +104,8 @@
 
 .map-filter {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
+  margin-bottom: 10px;
 
   &__left {
     flex-basis: 22px;
@@ -115,6 +117,7 @@
 
   &__right {
     flex: 1;
+    line-height: 0;
   }
 
   &.azure .map-filter__input:checked {
@@ -127,6 +130,30 @@
 
   &.marigold .map-filter__input:checked {
     color: $marigold;
+  }
+
+  &.green-haze .map-filter__input:checked {
+    color: $green-haze;
+  }
+
+  &.salmon .map-filter__input:checked {
+    color: $salmon;
+  }
+
+  &.brillant-rose .map-filter__input:checked {
+    color: $brillant-rose;
+  }
+
+  &.governor-bay .map-filter__input:checked {
+    color: $governor-bay;
+  }
+
+  &.coral-tree .map-filter__input:checked {
+    color: $coral-tree;
+  }
+
+  &.niagara .map-filter__input:checked {
+    color: $niagara;
   }
 }
 
@@ -203,7 +230,7 @@
 .map-filter__label {
   font-family: $font-roboto;
   font-size: 16px;
-  line-height: 1.25;
+  line-height: 1.4;
   color: $darkgray;
 
   cursor: pointer;
@@ -221,4 +248,28 @@
 
 .color--marigold {
   color: $marigold;
+}
+
+.color--green-haze {
+  color: $green-haze;
+}
+
+.color--salmon {
+  color: $salmon;
+}
+
+.color--brillant-rose {
+  color: $brillant-rose;
+}
+
+.color--governor-bay {
+  color: $governor-bay;
+}
+
+.color--coral-tree {
+  color: $coral-tree;
+}
+
+.color--niagara {
+  color: $niagara;
 }

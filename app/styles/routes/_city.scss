@@ -28,20 +28,30 @@
     overflow: hidden;
 
     span {
-      float: left;
-      margin-top: 5px;
+      display: block;
+      margin: 5px 5px 10px 0;
+
+      @include media('>=550px') {
+        display: inline-block;
+      }
     }
 
     a {
-      float: left;
+      display: inline-block;
       font-family: $font-roboto;
       background-color: #ebf4ff;
       color: #0496ff;
       border-radius: 13px;
-      margin: 2px 5px;
+      margin-right: 4px;
+      margin-bottom: 8px;
       padding: 5px 12px;
       font-size: 14px;
+      text-decoration: none;
+      transition: all 125ms ease;
 
+      &:hover {
+          background-color: #D5E5F8;
+      }
     }
   }
 
@@ -54,7 +64,9 @@
 
     &__grid {
       display: grid;
-      row-gap: 25px;
+      row-gap: 30px;
+      -webkit-row-gap: 30px;
+      -moz-row-gap: 30px;
 
       @include media('>=550px') {
         grid-template-columns: repeat(2, 1fr);
