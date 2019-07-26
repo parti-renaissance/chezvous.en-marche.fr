@@ -1,14 +1,14 @@
 export default {
   dedoublement_classes: {
-    label: "Dédoublement des classes",
+    label: "Dédoublement des classes de CP et CE1",
     color: 'azure',
   },
   mission_bern: {
-    label: "Mission Bern",
+    label: "Projet de rénovation du patrimoine financé par la mission Bern",
     color: 'watermelon',
   },
   maison_service_accueil_public: {
-    label: "Nouvelle maison de service et d'accueil au public",
+    label: "Ouverture d'une maison de service et d'accueil au public",
     color: 'marigold',
   },
 };

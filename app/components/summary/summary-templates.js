@@ -32,7 +32,7 @@ export default {
     }
   },
   maison_service_accueil_public: {
-    label: "Généralisation des maisons de service et d'accueil du public",
+    label: "Généralisation des maisons de service et d'accueil au public",
     template: 'Une Maison de service et d’accueil du public a ouvert dans votre commune. Pour plus d’information, cliquez <a href="https://www.maisondeservicesaupublic.fr" target="_blank">ici</a>.'
   },
   creation_entreprises: {
@@ -86,7 +86,7 @@ export default {
     }
   },
   conversion_surface_agricole_bio: {
-    label: "Conversion de la surface agricole en Bio",
+    label: "Conversion de la surface agricole en bio",
     template: function (payload) {
       return 'Au niveau départemental, <span>'+formatNumber(payload.hectares_bio)+'</span> hectares sont désormais cultivés en agriculture biologique, '+
           'ou sont en cours de conversion. C’est <span>'+formatNumber(payload.progression)+'%</span> de plus qu’en 2017.';
@@ -101,7 +101,7 @@ export default {
     }
   },
   dedoublement_classes: {
-    label: "Dédoublement de classe",
+    label: "Dédoublement des classes de CP et CE1",
     template: function (payload) {
       if (1 === payload.total_cp_ce1) {
         return 'Dans votre commune, <span>1</span> classe de CP ou de CE1 a été dédoublée.';
@@ -111,7 +111,7 @@ export default {
     }
   },
   mission_bern: {
-    label: "Mission Bern",
+    label: "Projet de rénovation du patrimoine financé par la mission Bern",
     template: function (payload) {
       let str = 'Un <a href="' + payload.lien + '" target="_blank">projet de rénovation</a> du patrimoine est soutenu par la Mission Bern';
 
