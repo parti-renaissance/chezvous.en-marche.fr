@@ -113,7 +113,7 @@ export default {
   mission_bern: {
     label: "Mission Bern",
     template: function (payload) {
-      let str = 'Un <a href="' + payload.lien + '">projet de rénovation</a> du patrimoine est soutenu par la Mission Bern';
+      let str = 'Un <a href="' + payload.lien + '" target="_blank">projet de rénovation</a> du patrimoine est soutenu par la Mission Bern';
 
       if (payload.montant) {
         str += ' à hauteur de <span>' + formatNumber(payload.montant) + ' euros</span> dans votre commune';
