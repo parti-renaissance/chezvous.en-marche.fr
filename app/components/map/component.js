@@ -69,7 +69,7 @@ export default class Map extends Component {
   renderMap() {
     this.map = new mapboxgl.Map({
       container: 'map-ui',
-      style: 'mapbox://styles/mapbox/light-v9',
+      style: 'mapbox://styles/mapbox/streets-v9',
       // coordinates from algolia are [lat, long]
       // mapbox expects them to be [long, lat]
       center: [this.coordinates.lng, this.coordinates.lat],
