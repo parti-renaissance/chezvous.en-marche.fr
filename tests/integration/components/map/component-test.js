@@ -44,7 +44,7 @@ module('Integration | Component | map', function(hooks) {
       .expects('Map')
       .withArgs({
         container: 'map-ui',
-        style: 'mapbox://styles/mapbox/light-v9',
+        style: 'mapbox://styles/mapbox/streets-v9',
         center: [COORDS.lng, COORDS.lat],
         zoom: ZOOM,
       })

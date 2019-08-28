@@ -49,15 +49,11 @@
 }
 
 .header-toolbar__feedback-button {
+    height: 30px;
+
   .icon-more {
     width: 30px;
     height: 30px;
-  }
-}
-
-.header-toolbar__right {
-  @include media('>=large') {
-    flex-basis: 330px;
   }
 }
 
@@ -104,8 +100,8 @@
     font-family: $font-roboto;
     font-size: 16px;
     line-height: 1.5;
-    color: black;
-    margin-right: 20px;
+    color: $altgray;
+    margin-right: 10px;
   }
 
   &__share-group {
@@ -114,6 +110,14 @@
     justify-content: space-between;
 
     flex: 1;
+
+    .header-toolbar__button {
+      width: 46px;
+      height: 46px;
+      border: 1px solid $altgray-light;
+      margin-left: 10px;
+      border-radius: 50%;
+    }
   }
 }
 
@@ -132,7 +136,7 @@
 .header-toolbar__button {
   @include button;
   outline: 0;
-  
+
   transition: color 125ms ease;
 
   &:hover {
