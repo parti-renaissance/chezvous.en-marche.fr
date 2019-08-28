@@ -66,8 +66,8 @@ export default {
     }
   },
   pass_culture: {
-    label: "Mise en Place du Pass Culture",
-    template: 'Dans votre commune, tous les jeunes de 18 ans peuvent expérimenter le PASS culture : c\'est une réserve de <span>500€</span> pour s\'offrir des activités culturelles et artistiques. Découvrez le <a href="https://pass.culture.fr" target="_blank">ici</a>.'
+    label: "Mise en place du Pass Culture",
+    template: 'Dans votre commune, tous les jeunes de 18 ans peuvent expérimenter le PASS culture : c\'est une réserve de <span>500</span> euros pour s\'offrir des activités culturelles et artistiques. Découvrez le <a href="https://pass.culture.fr" target="_blank">ici</a>.'
   },
   emplois_francs: {
     label: "Emplois francs",
@@ -116,7 +116,7 @@ export default {
       let str = 'Un <a href="' + payload.lien + '" target="_blank">projet de rénovation</a> du patrimoine est soutenu par la Mission Bern';
 
       if (payload.montant) {
-        str += ' à hauteur de <span>' + formatNumber(payload.montant) + ' euros</span> dans votre commune';
+        str += ' à hauteur de <span>' + formatNumber(payload.montant) + '</span> euros dans votre commune';
       }
 
       str += '.';
