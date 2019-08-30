@@ -21,14 +21,16 @@
         text=@title
         via='enmarchefr'
       )}}
+      @rsClass='twitter'
       data-test-share-twitter
     >
-      <FaIcon @icon='twitter' @prefix='fab' />
+      <FaIcon @icon='twitter' @prefix='fab'/>
     </HeaderToolbar::button>
 
     <HeaderToolbar::button
       data-test-share-facebook
       @open={{action 'dialog' 'facebook'}}
+      @rsClass='facebook'
     >
       <FaIcon @icon='facebook-f' @prefix='fab' />
     </HeaderToolbar::button>
@@ -36,6 +38,7 @@
     <HeaderToolbar::button
       data-test-share-telegram
       @open={{action 'dialog' 'telegram'}}
+      @rsClass='telegram'
     >
       <FaIcon @icon='telegram-plane' @prefix='fab' />
     </HeaderToolbar::button>

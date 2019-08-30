@@ -1,0 +1,113 @@
+@mixin button(
+  $display: flex,
+  $border: none,
+  $border-radius: 0,
+  $background-color: transparent,
+  $font-family: $font-roboto,
+  $font-size: 16px,
+  $color: black,
+  $padding: 0,
+  $font-weight: normal,
+  $height: auto,
+  $width: auto,
+) {
+  display: $display;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  text-decoration: none;
+
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  padding: $padding;
+  border: $border;
+  border-radius: $border-radius;
+  background-color: $background-color;
+  font-family: $font-family;
+  font-size: $font-size;
+  color: $color;
+  font-weight: $font-weight;
+  height: $height;
+  width: $width;
+
+  transition: all 125ms ease-in;
+  -webkit-transition: all 125ms ease-in;
+
+  &:hover {
+      text-decoration: none;
+  }
+
+  &[disabled] {
+      opacity: 0.75;
+  }
+}
+
+// Style - blue
+@mixin button-blue (
+    $padding: 17px 35px,
+    $width: auto,
+){
+    @include button(
+      $display: inline-block,
+      $background-color: $blue,
+      $color: white,
+      $padding: $padding,
+      $border-radius: 3px,
+      $font-size: 18px,
+      $font-weight: bold,
+      $height: 60px,
+      $width: $width,
+    );
+
+    &:hover {
+        background-color: #174BA4;
+    }
+}
+
+// Style - white
+@mixin button-white (
+    $padding: 17px 35px,
+    $width: auto,
+){
+    @include button(
+      $display: inline-block,
+      $background-color: white,
+      $color: black,
+      $padding: $padding,
+      $border-radius: 3px,
+      $font-size: 18px,
+      $font-weight: bold,
+      $height: 60px,
+      $width: $width,
+    );
+
+    &:hover {
+        background-color: black;
+        color: white;
+    }
+}
+
+// Style - icon
+@mixin button-icon(
+        $padding: 0 20px,
+        $height: 100%,
+){
+    @include button(
+        $border-radius: 3px,
+        $border: solid 1px $blue,
+        $background-color: $blue,
+        $color: white,
+        $padding: $padding,
+        $font-weight: bold,
+        $font-size: 18px,
+        $height: $height,
+        $width: 100%,
+    );
+
+    &:hover {
+        background-color: #174BA4;
+    }
+}

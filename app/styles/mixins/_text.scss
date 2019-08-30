@@ -28,6 +28,38 @@
   }
 }
 
+@mixin heading-medium(
+  $margin-bottom: 10px,
+) {
+  font-family: $font-gillsans;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: -1px;
+  color: black;
+
+  margin-bottom: $margin-bottom;
+
+  font-size: 24px;
+  @include media('>=medium') {
+    font-size: 30px;
+  }
+}
+
+@mixin heading-small(
+  $margin-bottom: 20px,
+) {
+  font-family: $font-roboto;
+  line-height: normal;
+  color: black;
+  margin-bottom: $margin-bottom;
+  font-size: 18px;
+  font-weight: normal;
+
+  @include media('>=medium') {
+    font-size: 22px;
+  }
+}
+
 @mixin body(
   $margin-bottom: 20px,
 ) {
