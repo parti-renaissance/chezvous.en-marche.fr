@@ -11,6 +11,16 @@ export default function() {
       use: [slideThenFade],
     }),
   );
+  this.transition(
+    this.hasClass('summary-detail-wrapper'),
+    this.use('explode', {
+      pick: '.ember-modal-overlay',
+      use: ['fade', {duration: 125}]
+    }, {
+      pick: '.ember-modal-dialog',
+      use: [slideInOut],
+    }),
+  );
 }
 
 function slideThenFade() {
@@ -23,5 +33,14 @@ function slideThenFade() {
       .then(() => animate(inner, {opacity: 1, duration: 250}));
   } else {
     return this.lookup('to-up').call(this, {duration: 200, easing: 'easeOut'});
+  }
+}
+
+function slideInOut() {
+  const OPS = {duration: 125, easing: 'easeInOut'};
+  if (this.newElement) {
+    return this.lookup('to-left').call(this, OPS);
+  } else {
+    return this.lookup('to-right').call(this, OPS);
   }
 }
