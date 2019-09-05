@@ -61,6 +61,7 @@
     "ember-qunit": "^4.4.1",
     "ember-resolver": "^5.0.1",
     "ember-responsive": "^3.0.1",
+    "ember-set-body-class": "^0.4.2",
     "ember-sinon": "^4.0.0",
     "ember-sinon-qunit": "^3.4.0",
     "ember-source": "~3.10.0",
