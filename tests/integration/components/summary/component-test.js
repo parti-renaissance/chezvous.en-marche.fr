@@ -14,7 +14,9 @@ module('Integration | Component | summary', function(hooks) {
       }
     };
     const SUMMARY = {
-      type: 'foo',
+      type: {
+        code: 'foo',
+      },
       payload: {
         foo: 100,
         bar: 500,
@@ -33,7 +35,9 @@ module('Integration | Component | summary', function(hooks) {
 
   test('it handles data without a corresponding template', async function(assert) {
     const SUMMARY = {
-      type: 'foo',
+      type: {
+        code: 'foo',
+      },
       payload: {
         number: 100,
       }

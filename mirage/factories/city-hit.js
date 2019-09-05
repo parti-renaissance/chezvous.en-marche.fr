@@ -31,14 +31,18 @@ export default Factory.extend({
   ]),
   measures: () => ([
     {
-      type: "fiber_optic_coverage",
+      type: {
+        code: "fiber_optic_coverage"
+      },
       payload: {
         new_installations: 23,
         coverage: 8
       }
     },
     {
-      type: "total_new_houses",
+      type: {
+        code: "total_new_houses"
+      },
       payload: {
         houses_count: 2
       }
