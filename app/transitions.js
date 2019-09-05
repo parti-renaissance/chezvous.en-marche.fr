@@ -2,7 +2,7 @@ import { animate } from 'liquid-fire';
 
 export default function() {
   this.transition(
-    this.hasClass('liquid-dialog-container'),
+    this.hasClass('city-search-wrapper'),
     this.use('explode', {
       pick: '.ember-modal-overlay',
       use: ['fade', {duration: 250}]
