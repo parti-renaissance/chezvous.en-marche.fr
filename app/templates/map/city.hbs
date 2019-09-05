@@ -34,6 +34,7 @@
       {{#each model.measures as |summary|}}
         <Summary
           @summary={{summary}}
+          @chooseSummary={{action (mut summaryDetail) summary}}
           data-test-summary
         />
       {{/each}}
@@ -53,3 +54,11 @@
 <div class="wrapper__l" id="section-2">
   <ApplicationCall/>
 </div>
+
+{{#if summaryDetail}}
+  <SummaryDetail
+    @summary={{summaryDetail}}
+    @close={{action (mut summaryDetail) null}}
+    data-test-summary-detail
+  />
+{{/if}}
