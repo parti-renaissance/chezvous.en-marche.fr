@@ -1,6 +1,6 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
-import { render } from '@ember/test-helpers';
+import { render, click } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 
 module('Integration | Component | summary', function(hooks) {
@@ -48,5 +48,15 @@ module('Integration | Component | summary', function(hooks) {
     await render(hbs`<Summary @summary={{SUMMARY}}/>`);
 
     assert.dom('[data-test-summary-label]').hasText('foo');
+  });
+
+  test('it accepts a chooseSummary action', async function(assert) {
+    assert.expect(1);
+
+    this.set('choose', () => assert.ok('called choose'));
+
+    await render(hbs`<Summary @chooseSummary={{choose}}/>`);
+
+    await click('[data-test-plus-button]');
   });
 });

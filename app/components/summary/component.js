@@ -1,5 +1,5 @@
 import Component from '@ember/component';
-import { computed } from '@ember/object';
+import { computed, action } from '@ember/object';
 import { classNames } from '@ember-decorators/component';
 
 import TEMPLATES from './summary-templates';
@@ -45,5 +45,12 @@ export default class Summary extends Component {
     });
 
     return template;
+  }
+
+  @action
+  choose() {
+    if (typeof this.chooseSummary === 'function') {
+      this.chooseSummary();
+    }
   }
 }
