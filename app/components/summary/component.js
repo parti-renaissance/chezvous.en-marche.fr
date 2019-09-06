@@ -50,6 +50,15 @@ export default class Summary extends Component {
     return null;
   }
 
+  @computed('type')
+  get updatedAt() {
+    if (this.summary && this.summary.type) {
+      return this.summary.type.updatedAt;
+    }
+
+    return null;
+  }
+
   @computed('metadata', 'summary.payload')
   get details() {
     if (!this.metadata) {
