@@ -29,7 +29,6 @@ module('Integration | Component | summary', function(hooks) {
 
     await render(hbs`<Summary @TEMPLATES={{TEMPLATES}} @summary={{SUMMARY}}/>`);
 
-    assert.dom('[data-test-summary-label]').hasText(TEMPLATES.foo.label);
     assert.dom('[data-test-summary-dek]').hasText(EXPECTED);
   });
 
@@ -37,6 +36,7 @@ module('Integration | Component | summary', function(hooks) {
     const SUMMARY = {
       type: {
         code: 'foo',
+        label: 'bar',
       },
       payload: {
         number: 100,
@@ -47,7 +47,7 @@ module('Integration | Component | summary', function(hooks) {
 
     await render(hbs`<Summary @summary={{SUMMARY}}/>`);
 
-    assert.dom('[data-test-summary-label]').hasText('foo');
+    assert.dom('[data-test-summary-label]').hasText('bar');
   });
 
   test('it accepts a chooseSummary action', async function(assert) {
