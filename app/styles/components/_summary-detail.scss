@@ -29,7 +29,11 @@
     font-weight: bold;
     line-height: 1.25;
     color: black;
-    margin-bottom: 15px;
+    margin-bottom: 5px;
+  }
+
+  &__updated {
+    font-size: 14px;
   }
 
   &__subhead {
@@ -40,6 +44,7 @@
     color: black;
     text-transform: uppercase;
     margin-bottom: 20px;
+    margin-top: 20px;
 
     > span {
       position: relative;
@@ -102,5 +107,6 @@
     font-size: 16px;
     font-weight: bold;
     line-height: 1.5;
+    margin-bottom: 15px;
   }
 }
