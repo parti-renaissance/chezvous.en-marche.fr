@@ -23,9 +23,13 @@ export default class Summary extends Component {
     return this.TEMPLATES[this.type];
   }
 
-  @computed('metadata')
+  @computed('type')
   get label() {
-    return this.metadata ? this.metadata.label : this.type;
+    if (this.summary && this.summary.type) {
+      return this.summary.type.label;
+    }
+
+    return this.type;
   }
 
   @computed('metadata', 'summary.payload')
