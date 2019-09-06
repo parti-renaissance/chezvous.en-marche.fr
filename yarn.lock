@@ -5042,6 +5042,13 @@ ember-router-generator@^1.2.3:
   dependencies:
     recast "^0.11.3"
 
+ember-set-body-class@^0.4.2:
+  version "0.4.2"
+  resolved "https://registry.yarnpkg.com/ember-set-body-class/-/ember-set-body-class-0.4.2.tgz#93065767bb6a9f6754661d5bf52e473cdab69228"
+  integrity sha512-yAWDR2KWm7BYr5Iit1sOZwamfJI0t/2NiQKbNSiDNnIWnc9GdI6Muv22uYxRktFCvHgLHsp4+YD7YkcHjygJlg==
+  dependencies:
+    ember-cli-babel "^6.6.0"
+
 ember-sinon-qunit@^3.4.0:
   version "3.4.0"
   resolved "https://registry.yarnpkg.com/ember-sinon-qunit/-/ember-sinon-qunit-3.4.0.tgz#6c6ea96273572825e8789c7214e3fd3d9ef4c376"

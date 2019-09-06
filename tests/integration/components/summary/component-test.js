@@ -1,6 +1,6 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
-import { render } from '@ember/test-helpers';
+import { render, click } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 
 module('Integration | Component | summary', function(hooks) {
@@ -14,7 +14,9 @@ module('Integration | Component | summary', function(hooks) {
       }
     };
     const SUMMARY = {
-      type: 'foo',
+      type: {
+        code: 'foo',
+      },
       payload: {
         foo: 100,
         bar: 500,
@@ -27,13 +29,15 @@ module('Integration | Component | summary', function(hooks) {
 
     await render(hbs`<Summary @TEMPLATES={{TEMPLATES}} @summary={{SUMMARY}}/>`);
 
-    assert.dom('[data-test-summary-label]').hasText(TEMPLATES.foo.label);
     assert.dom('[data-test-summary-dek]').hasText(EXPECTED);
   });
 
   test('it handles data without a corresponding template', async function(assert) {
     const SUMMARY = {
-      type: 'foo',
+      type: {
+        code: 'foo',
+        label: 'bar',
+      },
       payload: {
         number: 100,
       }
@@ -43,6 +47,16 @@ module('Integration | Component | summary', function(hooks) {
 
     await render(hbs`<Summary @summary={{SUMMARY}}/>`);
 
-    assert.dom('[data-test-summary-label]').hasText('foo');
+    assert.dom('[data-test-summary-label]').hasText('bar');
+  });
+
+  test('it accepts a chooseSummary action', async function(assert) {
+    assert.expect(1);
+
+    this.set('choose', () => assert.ok('called choose'));
+
+    await render(hbs`<Summary @chooseSummary={{choose}}/>`);
+
+    await click('[data-test-plus-button]');
   });
 });

@@ -1,5 +1,5 @@
 import Component from '@ember/component';
-import { computed } from '@ember/object';
+import { computed, action } from '@ember/object';
 import { classNames } from '@ember-decorators/component';
 
 import TEMPLATES from './summary-templates';
@@ -9,18 +9,57 @@ export default class Summary extends Component {
 
   TEMPLATES = TEMPLATES
 
-  @computed('summary.type')
+  @computed('summary')
+  get type() {
+    if (this.summary && this.summary.type) {
+      return this.summary.type.code;
+    }
+
+    return null;
+  }
+
+  @computed('type')
   get metadata() {
-    let { type } = this.summary;
-    return this.TEMPLATES[type];
+    return this.TEMPLATES[this.type];
   }
 
-  @computed('metadata')
+  @computed('type')
   get label() {
-    return this.metadata ? this.metadata.label : this.summary.type;
+    if (this.summary && this.summary.type) {
+      return this.summary.type.label;
+    }
+
+    return this.type;
   }
 
-  @computed('metadata', 'summary.data')
+  @computed('type')
+  get sourceLink() {
+    if (this.summary && this.summary.type) {
+      return this.summary.type.sourceLink;
+    }
+
+    return null;
+  }
+
+  @computed('type')
+  get sourceLabel() {
+    if (this.summary && this.summary.type) {
+      return this.summary.type.sourceLabel;
+    }
+
+    return null;
+  }
+
+  @computed('type')
+  get updatedAt() {
+    if (this.summary && this.summary.type) {
+      return this.summary.type.updatedAt;
+    }
+
+    return null;
+  }
+
+  @computed('metadata', 'summary.payload')
   get details() {
     if (!this.metadata) {
       return '';
@@ -37,5 +76,12 @@ export default class Summary extends Component {
     });
 
     return template;
+  }
+
+  @action
+  choose() {
+    if (typeof this.chooseSummary === 'function') {
+      this.chooseSummary();
+    }
   }
 }
