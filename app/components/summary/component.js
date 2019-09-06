@@ -1,5 +1,6 @@
 import Component from '@ember/component';
 import { computed, action } from '@ember/object';
+import { reads, or } from '@ember/object/computed';
 import { classNames } from '@ember-decorators/component';
 
 import TEMPLATES from './summary-templates';
@@ -9,55 +10,25 @@ export default class Summary extends Component {
 
   TEMPLATES = TEMPLATES
 
-  @computed('summary')
-  get type() {
-    if (this.summary && this.summary.type) {
-      return this.summary.type.code;
-    }
-
-    return null;
-  }
+  @reads('summary.type.code')
+  type
 
   @computed('type')
   get metadata() {
     return this.TEMPLATES[this.type];
   }
 
-  @computed('type')
-  get label() {
-    if (this.summary && this.summary.type) {
-      return this.summary.type.label;
-    }
+  @or('summary.type.label', 'type')
+  label
 
-    return this.type;
-  }
+  @reads('summary.type.sourceLink')
+  sourceLink
 
-  @computed('type')
-  get sourceLink() {
-    if (this.summary && this.summary.type) {
-      return this.summary.type.sourceLink;
-    }
+  @reads('summary.type.sourceLabel')
+  sourceLabel
 
-    return null;
-  }
-
-  @computed('type')
-  get sourceLabel() {
-    if (this.summary && this.summary.type) {
-      return this.summary.type.sourceLabel;
-    }
-
-    return null;
-  }
-
-  @computed('type')
-  get updatedAt() {
-    if (this.summary && this.summary.type) {
-      return this.summary.type.updatedAt;
-    }
-
-    return null;
-  }
+  @reads('summary.type.updatedAt')
+  updatedAt
 
   @computed('metadata', 'summary.payload')
   get details() {
