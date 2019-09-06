@@ -13,9 +13,9 @@ export default class Summary extends Component {
   get type() {
     if (this.summary && this.summary.type) {
       return this.summary.type.code;
-    } else {
-      return null;
     }
+
+    return null;
   }
 
   @computed('type')
@@ -30,6 +30,24 @@ export default class Summary extends Component {
     }
 
     return this.type;
+  }
+
+  @computed('type')
+  get sourceLink() {
+    if (this.summary && this.summary.type) {
+      return this.summary.type.sourceLink;
+    }
+
+    return null;
+  }
+
+  @computed('type')
+  get sourceLabel() {
+    if (this.summary && this.summary.type) {
+      return this.summary.type.sourceLabel;
+    }
+
+    return null;
   }
 
   @computed('metadata', 'summary.payload')
