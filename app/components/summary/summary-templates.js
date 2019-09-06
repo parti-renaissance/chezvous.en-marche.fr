@@ -4,7 +4,6 @@ function formatNumber(num) {
 
 export default {
   suppression_taxe_habitation: {
-    label: "Suppression de la taxe d’habitation",
     template: function (payload) {
       return 'Pour <span>'+formatNumber(payload.nombre_foyers)+'</span> foyers dans votre commune, '+
           'la taxe d\'habitation a baissé de <span>'+formatNumber(payload.baisse_2018)+'</span> euros en 2018. '+
@@ -14,7 +13,6 @@ export default {
     }
   },
   couverture_fibre: {
-    label: "Couverture en fibre de tout le territoire",
     template: function (payload) {
       let str = [];
 
@@ -32,11 +30,9 @@ export default {
     }
   },
   maison_service_accueil_public: {
-    label: "Généralisation des maisons de service et d'accueil au public",
     template: 'Une Maison de service et d’accueil du public a ouvert dans votre commune. Pour plus d’information, cliquez <a href="https://www.maisondeservicesaupublic.fr" target="_blank">ici</a>.'
   },
   creation_entreprises: {
-    label: "Création nettes d'entreprises",
     template: function (payload) {
       let str = 'Depuis mai 2017, il y a <span>'+formatNumber(payload.entreprises)+'</span> entreprises de plus dans votre commune';
 
@@ -50,7 +46,6 @@ export default {
     }
   },
   baisse_nombre_chomeurs: {
-    label: "Baisse du nombre de chômeurs",
     template: function (payload) {
       let str = [];
 
@@ -66,19 +61,15 @@ export default {
     }
   },
   pass_culture: {
-    label: "Mise en place du Pass Culture",
     template: 'Dans votre commune, tous les jeunes de 18 ans peuvent expérimenter le PASS culture : c\'est une réserve de <span>500</span> euros pour s\'offrir des activités culturelles et artistiques. Découvrez le <a href="https://pass.culture.fr" target="_blank">ici</a>.'
   },
   emplois_francs: {
-    label: "Emplois francs",
     template: "Un quartier de votre commune est éligible au dispositif des emplois francs."
   },
   quartier_reconquete_republicaine: {
-    label: "Création d'un quartier de reconquête républicaine",
     template: "Un Quartier de Reconquête Républicaine a été déployé dans votre ville."
   },
   cheque_energie: {
-    label: "Chèque énergie",
     template: function (payload) {
       return 'Au niveau départemental, <span>'+formatNumber(payload.nombre_beneficiaires)+'</span> personnes bénéficient d’un chèque énergie, ' +
           'pour un montant moyen de <span>200</span> euros. ' +
@@ -86,14 +77,12 @@ export default {
     }
   },
   conversion_surface_agricole_bio: {
-    label: "Conversion de la surface agricole en bio",
     template: function (payload) {
       return 'Au niveau départemental, <span>'+formatNumber(payload.hectares_bio)+'</span> hectares sont désormais cultivés en agriculture biologique, '+
           'ou sont en cours de conversion. C’est <span>'+formatNumber(payload.progression)+'%</span> de plus qu’en 2017.';
     }
   },
   prime_conversion_automobile: {
-    label: "Prime à la conversion automobile",
     template: function (payload) {
       return 'Au niveau départemental, <span>' + formatNumber(payload.nombre_beneficiaires) + '</span> personnes ont pu bénéficier ' +
           'd’une prime à la conversion automobile d’un montant moyen de <span>' + formatNumber(payload.montant_moyen) + '</span> euros. ' +
@@ -101,7 +90,6 @@ export default {
     }
   },
   dedoublement_classes: {
-    label: "Dédoublement des classes de CP et CE1",
     template: function (payload) {
       if (1 === payload.total_cp_ce1) {
         return 'Dans votre commune, <span>1</span> classe de CP ou de CE1 a été dédoublée.';
@@ -111,7 +99,6 @@ export default {
     }
   },
   mission_bern: {
-    label: "Projet de rénovation du patrimoine financé par la mission Bern",
     template: function (payload) {
       let str = 'Un <a href="' + payload.lien + '" target="_blank">projet de rénovation</a> du patrimoine est soutenu par la Mission Bern';
 

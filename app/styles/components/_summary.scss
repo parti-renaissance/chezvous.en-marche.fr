@@ -42,5 +42,89 @@
       font-weight: 600;
       color: #000;
   }
-  
+
+}
+
+.summary-footer {
+
+    .summary-footer__source {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        margin: 12px 0 15px 0;
+        font-size: 14px;
+
+        @include media(">=large") {
+            flex-direction: row;
+        }
+
+        .summary-source-url {
+            margin-right: 6px;
+
+            span {
+                display: inline-block;
+                font-size: 11px;
+                font-weight: bold;
+                letter-spacing: 0.5px;
+                color: $darkgray;
+                border: 2px solid #dbdbdb;
+                border-radius: 20px;
+                text-transform: uppercase;
+                padding: 1px 6px;
+                margin-right: 2px;
+            }
+
+            a {
+                color: #000;
+            }
+
+            .icon-url {
+                position: relative;
+                vertical-align: middle;
+                top: -1px;
+            }
+        }
+
+        .summary-source-update {
+            color: $gray;
+
+            @include media("<=large") {
+                margin-top: 5px;
+            }
+
+            &::before {
+                @include media(">=large") {
+                    content: '';
+                    display: inline-block;
+                    width: 3px;
+                    height: 3px;
+                    background-color: $gray;
+                    margin-right: 6px;
+                    margin-bottom: 3px;
+                    border-radius: 10px;
+                }
+            }
+        }
+    }
+
+    .summary-footer__button {
+        @include button(
+            $background-color: #fff,
+            $border: 1px solid $lightgray,
+            $color: $gray,
+            $font-size: 12px,
+            $border-radius: 30px,
+            $padding: 5px 0,
+            $width: 100%,
+        );
+
+        text-transform: uppercase;
+        transition: all 125ms ease-in;
+        outline: 0;
+
+        &:hover {
+            color: $darkgray;
+            border-color: $darkgray;
+        }
+    }
 }

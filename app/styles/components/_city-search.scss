@@ -34,7 +34,6 @@
 
   > input {
     @include input;
-    height: 100%;
   }
 }
 
@@ -83,17 +82,9 @@
   }
 
   > button {
-    @include blue-button;
-    height: 100%;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-
-    &[disabled] {
-      opacity: 0.75;
-    }
+    @include button-icon(
+        $height: 60px,
+    );
   }
 
   .icon-search {

@@ -31,9 +31,15 @@ module('Acceptance | map', function(hooks) {
         coordinates: [ 48.6815276, 7.8407641 ]
       }],
       measures: [{
-        type: "creation_force_police_securite_quotidien",
+        type: {
+          code: "creation_force_police_securite_quotidien",
+          label: "foo",
+        },
       }, {
-        type: "total_nouvelles_maisons_service_au_public_departement",
+        type: {
+          code: "total_nouvelles_maisons_service_au_public_departement",
+          label: "bar",
+        },
       }],
     });
 
@@ -42,6 +48,11 @@ module('Acceptance | map', function(hooks) {
     assert.dom('[data-test-city-name]').hasText(NAME);
     assert.dom('[data-test-summary]').exists({count: 2});
     assert.dom('[data-test-filter] input').exists({count: 2});
+
+    await click('[data-test-plus-button]');
+
+    assert.dom('[data-test-summary-detail]').exists();
+    assert.dom('[data-test-summary-detail-title]').hasText('foo');
   });
 
   test('searching for a new city', async function(assert) {

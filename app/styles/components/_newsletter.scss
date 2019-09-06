@@ -1,0 +1,40 @@
+.newsletter-module {
+
+    @include media('>=1024px') {
+      padding: 0 90px;
+    }
+
+    &__subhead {
+        @include subhead(
+            $margin-bottom: 20px,
+        )
+    }
+
+    &__title {
+        @include heading-small(
+            $margin-bottom: 0,
+        );
+
+        max-width: 434px;
+        margin: 0 auto;
+    }
+
+    &__form {
+        display: flex;
+        max-width: 85%;
+        margin: 40px auto 0;
+
+        @include media('>=1024px') {
+            max-width: none;
+        }
+
+        .form__group {
+            flex-basis: 100%;
+            margin-right: 15px;
+        }
+    }
+
+    &__button {
+        @include button-blue;
+    }
+}

@@ -1,0 +1,19 @@
+.socials-module {
+    text-align: center;
+
+    @include media('>=1024px') {
+      padding: 0 60px;
+    }
+
+    &__subhead {
+        @include subhead(
+            $margin-bottom: 20px,
+        )
+    }
+
+    &__title {
+        @include heading-small(
+            $margin-bottom: 0,
+        )
+    }
+}

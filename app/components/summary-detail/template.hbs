@@ -1,0 +1,80 @@
+{{set-body-class "no-scroll"}}
+{{#modal-dialog
+  overlayClass='summary-detail-modal__overlay'
+  containerClass='summary-detail-modal'
+  wrapperClass='summary-detail-wrapper'
+  onClose=(action 'onClose')
+  animatable=true
+  overlayPosition='sibling'
+}}
+  <div class="summary-detail-modal__upper-right">
+    <button {{action 'onClose'}} class="city-search-modal__close">
+      {{svg-jar "close"}}
+    </button>
+  </div>
+
+  <div class="summary-detail-modal__body">
+    <h3 class="summary-detail-modal__head" data-test-summary-detail-title>
+      {{@summary.type.label}}
+    </h3>
+
+    <div class="summary-detail-modal__updated">
+      Mis à jour le {{@summary.type.updatedAt}}
+    </div>
+
+    <h4 class="summary-detail-modal__subhead">
+      <span>
+        En savoir plus
+      </span>
+    </h4>
+
+    <ul class="summary-detail-modal__list">
+      {{#if @summary.type.oldolfLink}}
+        <li>
+          <a href={{@summary.type.oldolfLink}} target="_blank" rel="noopener">
+            On l’a dit on le fait
+          </a>
+        </li>
+      {{/if}}
+      {{#if @summary.type.eligibilityLink}}
+        <li>
+          <a href={{@summary.type.eligibilityLink}} target="_blank" rel="noopener">
+            Vérifier mon éligibilité
+          </a>
+        </li>
+      {{/if}}
+    </ul>
+
+    {{#if @summary.type.citizenProjectsLink}}
+      <h4 class="summary-detail-modal__subhead">
+        <span>
+          Agir collectivement
+        </span>
+      </h4>
+
+      <ul class="summary-detail-modal__list">
+        <li>
+          <a href={{@summary.type.citizenProjectsLink}} target="_blank" rel="noopener">
+            Les projets citoyens
+          </a>
+        </li>
+      </ul>
+    {{/if}}
+
+    {{#if @summary.type.ideasWorkshopLink}}
+      <h4 class="summary-detail-modal__subhead">
+        <span>
+          Une idée pour faire encore mieux ?
+        </span>
+      </h4>
+
+      <ul class="summary-detail-modal__list">
+        <li>
+          <a href={{@summary.type.ideasWorkshopLink}} target="_blank" rel="noopener">
+            Faire une proposition sur l’Atelier des idées
+          </a>
+        </li>
+      </ul>
+    {{/if}}
+  </div>
+{{/modal-dialog}}

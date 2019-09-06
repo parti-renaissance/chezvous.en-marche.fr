@@ -44,7 +44,10 @@
 }
 
 .map-filter-button {
-  @include blue-button;
+  @include button-icon(
+      $padding: 8px,
+      $height: auto,
+  );
 
   > .icon-controls {
     width: 30px;
@@ -98,8 +101,11 @@
 }
 
 .map-filter-modal__submit {
-  @include blue-button($padding: 17px);
-  width: 100%;
+  @include button-blue(
+      $padding: 17px,
+      $width: 100%,
+  );
+
 }
 
 .map-filter {

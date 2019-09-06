@@ -1,8 +1,10 @@
 @import "vars";
+@import "socials-buttons";
 
 @import "mixins/fonts";
 @import "mixins/text";
 @import "mixins/forms";
+@import "mixins/buttons";
 
 @import 'ember-basic-dropdown';
 @import "ember-modal-dialog/ember-modal-structure";
@@ -24,4 +26,8 @@ $breakpoints: (xlarge: 1440px, large: 667px, medium: 376px);
 @import "components/header-toolbar";
 @import "components/city-search-modal";
 @import "components/summary";
+@import "components/socials-module";
+@import "components/newsletter";
+@import "components/application-call";
 @import "components/footer";
+@import "components/summary-detail";

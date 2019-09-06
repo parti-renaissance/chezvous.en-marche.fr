@@ -9,4 +9,21 @@
   <p class="summary-data" data-test-summary-dek>
     {{{this.details}}}
   </p>
+
+  <div class="summary-footer">
+    <div class="summary-footer__source">
+      <div class="summary-source-url">
+        <span>Source</span>
+        <a href={{{this.sourceLink}}} target="_blank" rel="noopener">
+          {{{this.sourceLabel}}}
+        </a>
+        {{svg-jar "url"}}
+      </div>
+      <div class="summary-source-update">Mis à jour le {{{this.updatedAt}}}</div>
+    </div>
+
+    <button data-test-plus-button {{action 'choose'}} class="summary-footer__button">
+      + Plus
+    </button>
+  </div>
 </div>
