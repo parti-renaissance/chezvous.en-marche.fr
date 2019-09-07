@@ -1,0 +1,11 @@
+<button
+  class="footer__button footer-feedback__email"
+  {{action 'dialog' 'email' (hash
+    subject="Signalement d'une erreur sur Ce qui a changé près de chez vous"
+    body='Je souhaite signaler une erreur sur {{URL}}'
+    email='idees@en-marche.fr'
+  )}}
+  data-test-report
+>
+  Signaler une erreur
+</button>

@@ -29,7 +29,7 @@
       }
   }
 
-  a {
+  a, button {
     opacity: 0.75;
     display: block;
     margin: 0 10px 10px;
@@ -45,7 +45,15 @@
     }
   }
 
-  .left a {
+  button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    text-align: left;
+  }
+
+  .left a, .left button {
       color: $darkgray;
   }
 
