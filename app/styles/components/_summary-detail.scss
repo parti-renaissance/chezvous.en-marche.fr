@@ -2,13 +2,13 @@
   border-radius: 0;
   box-shadow: none;
 
-  padding: 20px;
+  padding: 70px 20px;
   height: 100vh;
 
   width: 100%;
 
   @include media('>=800px') {
-    padding: 110px 45px 60px;
+    padding: 110px 75px 60px;
     width: 600px;
   }
 
@@ -19,8 +19,13 @@
 
   &__upper-right {
     position: absolute;
-    top: 45px;
-    right: 45px;
+    top: 20px;
+    right: 20px;
+
+    @include media('>=800px') {
+      top: 45px;
+      right: 45px;
+    }
   }
 
   &__head {
@@ -29,11 +34,13 @@
     font-weight: bold;
     line-height: 1.25;
     color: black;
-    margin-bottom: 5px;
+    margin-bottom: 15px;
   }
 
   &__updated {
     font-size: 14px;
+    color: $gray;
+    margin-bottom: 40px;
   }
 
   &__subhead {
@@ -102,11 +109,11 @@
 
   li > a {
     display: block;
-    color: $azure;
+    color: $azure-two;
     font-family: $font-roboto;
     font-size: 16px;
     font-weight: bold;
     line-height: 1.5;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
   }
 }
