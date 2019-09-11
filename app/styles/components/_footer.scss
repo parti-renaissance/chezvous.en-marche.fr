@@ -10,22 +10,23 @@
   font-size: 14px;
   padding: 40px 0;
   display: flex;
+  flex-direction: column;
   justify-content: flex-start;
 
   @include media(">=large") {
     justify-content: space-between;
-
+    flex-direction: row;
   }
 
   div.left,
   div.right  {
       display: flex;
       flex-direction: column;
-      margin-right: 50px;
+      margin-bottom: 20px;
 
       @include media(">=large") {
         flex-direction: row;
-        margin-right: 0;
+        margin-bottom: 0;
       }
   }
 
