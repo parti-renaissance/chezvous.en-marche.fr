@@ -5,7 +5,7 @@
 
   <main>
     <h2 class="home-subhead">
-      Les 2 ans du quinquennat
+      Les {{moment-diff '2017-05-14' now precision='years'}} ans du quinquennat
     </h2>
 
     <h1 class="home-heading">
@@ -13,7 +13,8 @@
     </h1>
 
     <p class="home-body">
-      Entrez votre code postal pour voir ce qui a changé ces 2 dernières années dans votre commune
+      Entrez votre code postal pour voir ce qui a changé ces
+      {{moment-diff '2017-05-14' now precision='years'}} dernières années dans votre commune
     </p>
 
     <CitySearch @onSubmit={{this.onSubmit}}/>
