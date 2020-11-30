@@ -20,9 +20,9 @@
   "devDependencies": {
     "@ember/jquery": "0.6.1",
     "@ember/optional-features": "0.7.0",
-    "@fortawesome/ember-fontawesome": "0.1.13",
-    "@fortawesome/free-brands-svg-icons": "5.9.0",
-    "@fortawesome/free-solid-svg-icons": "5.9.0",
+    "@fortawesome/ember-fontawesome": "0.2.2",
+    "@fortawesome/free-brands-svg-icons": "5.15.1",
+    "@fortawesome/free-solid-svg-icons": "5.15.1",
     "algoliasearch": "3.33.0",
     "babel-eslint": "8.2.6",
     "broccoli-asset-rev": "3.0.0",
