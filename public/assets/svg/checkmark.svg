@@ -1,3 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 11" class="icon-checkmark">
-  <polygon points="8.204 6.089 6.418 6 6 13 20 12.678 19.265 11.085 8.702 10.107" transform="rotate(-45 3.257 12.536)"/>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" class="icon-checkmark" viewBox="0 0 16 11"><polygon points="8.204 6.089 6.418 6 6 13 20 12.678 19.265 11.085 8.702 10.107" transform="rotate(-45 3.257 12.536)"/></svg>

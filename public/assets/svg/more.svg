@@ -1,7 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" class="icon-more">
-  <g fill="#C4CCD9" fill-rule="evenodd" transform="rotate(90 7 11)">
-    <circle cx="3" cy="3" r="2.5"/>
-    <circle cx="11" cy="3" r="2.5"/>
-    <circle cx="19" cy="3" r="2.5"/>
-  </g>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" class="icon-more" viewBox="0 0 30 30"><g fill="#C4CCD9" fill-rule="evenodd" transform="rotate(90 7 11)"><circle cx="3" cy="3" r="2.5"/><circle cx="11" cy="3" r="2.5"/><circle cx="19" cy="3" r="2.5"/></g></svg>
