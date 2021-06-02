@@ -44,37 +44,5 @@
         </li>
       {{/if}}
     </ul>
-
-    {{#if @summary.type.citizenProjectsLink}}
-      <h4 class="summary-detail-modal__subhead">
-        <span>
-          Agir collectivement
-        </span>
-      </h4>
-
-      <ul class="summary-detail-modal__list">
-        <li>
-          <a href={{@summary.type.citizenProjectsLink}} target="_blank" rel="noopener">
-            Les projets citoyens
-          </a>
-        </li>
-      </ul>
-    {{/if}}
-
-    {{#if @summary.type.ideasWorkshopLink}}
-      <h4 class="summary-detail-modal__subhead">
-        <span>
-          Une idée pour faire encore mieux ?
-        </span>
-      </h4>
-
-      <ul class="summary-detail-modal__list">
-        <li>
-          <a href={{@summary.type.ideasWorkshopLink}} target="_blank" rel="noopener">
-            Faire une proposition sur l’Atelier des idées
-          </a>
-        </li>
-      </ul>
-    {{/if}}
   </div>
 {{/modal-dialog}}
