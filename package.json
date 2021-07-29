@@ -80,7 +80,7 @@
     "loader.js": "4.7.0",
     "mapbox-gl": "1.13.1",
     "normalize.css": "8.0.1",
-    "qunit-dom": "0.9.2",
+    "qunit-dom": "1.6.0",
     "sass": "1.32.8"
   },
   "engines": {
