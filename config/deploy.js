@@ -11,10 +11,7 @@ module.exports = function(deployTarget) {
       commitMessage: 'Deploying [skip ci]',
     },
     'gcloud-storage': {
-      credentials: {
-        private_key: process.env.GCS_PRIVATE_KEY.replace(/\\n/g, '\n'),
-        client_email: process.env.GCS_CLIENT_EMAIL,
-      },
+      keyFilename: './key.json',
       projectId: process.env.GCS_PROJECT_ID,
       bucket: process.env.GCLOUD_BUCKET,
     },
