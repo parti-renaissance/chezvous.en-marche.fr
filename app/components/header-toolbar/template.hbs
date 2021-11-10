@@ -23,13 +23,13 @@
       <HeaderToolbar::feedback data-test-feedback />
     {{else}}
       {{#basic-dropdown as |dd|}}
-        {{#dd.trigger class="header-toolbar__feedback-button"}}
+        {{#dd.Trigger class="header-toolbar__feedback-button"}}
           {{svg-jar "more"}}
-        {{/dd.trigger}}
+        {{/dd.Trigger}}
 
-        {{#dd.content}}
+        {{#dd.Content}}
           <HeaderToolbar::feedback @vertical={{true}} data-test-feedback />
-        {{/dd.content}}
+        {{/dd.Content}}
       {{/basic-dropdown}}
     {{/if}}
   </div>
