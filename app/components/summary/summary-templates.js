@@ -5,11 +5,11 @@ function formatNumber(num) {
 export default {
   suppression_taxe_habitation: {
     template: function (payload) {
-      return 'Pour <span>'+formatNumber(payload.nombre_foyers)+'</span> foyers dans votre commune, '+
-          'la taxe d\'habitation a baissé de <span>'+formatNumber(payload.baisse_2018)+'</span> euros en 2018. '+
-          'Elle baissera de <span>'+formatNumber(payload.baisse_2019)+'</span> euros supplémentaires en 2019 et à nouveau en 2020. '+
-          'Au total, votre taxe d\'habitation va donc baisser de <span>'+formatNumber(payload.baisse_total)+'</span> euros. '+
-          'Pour savoir si vous êtes éligible, rendez-vous <a href="https://www.impots.gouv.fr/portail/simulateur-de-la-reforme-de-la-taxe-dhabitation-pour-2019" target="_blank">ici</a>.';
+      return 'Pour <span>' +
+        formatNumber(payload.nombre_foyers) +
+        '</span>  foyers dans votre commune, la taxe d\'habitation était de <span>' +
+        formatNumber(payload.baisse_2018) +
+        '</span> euros en 2018. Désormais, ils ne la paient plus. Pour savoir si vous êtes éligibles à la baisse rendez-vous <a href="https://www.impots.gouv.fr/portail/simulateur-de-la-reforme-de-la-taxe-dhabitation-pour-2019" target="_blank">ici</a>.';
     }
   },
   couverture_fibre: {
@@ -30,7 +30,7 @@ export default {
     }
   },
   maison_service_accueil_public: {
-    template: 'Une Maison de service et d’accueil du public a ouvert dans votre commune. Pour plus d’information, cliquez <a href="https://www.maisondeservicesaupublic.fr" target="_blank">ici</a>.'
+    template: 'Une Maison France Service a ouvert dans votre commune.'
   },
   creation_entreprises: {
     template: function (payload) {
@@ -61,7 +61,7 @@ export default {
     }
   },
   pass_culture: {
-    template: 'Dans votre commune, tous les jeunes de 18 ans peuvent expérimenter le PASS culture : c\'est une réserve de <span>500</span> euros pour s\'offrir des activités culturelles et artistiques. Découvrez le <a href="https://pass.culture.fr" target="_blank">ici</a>.'
+    template: 'Dans votre commune, tous les jeunes de 18 ans peuvent bénéficier du PASS culture : c’est un total de 500€ pour s’offrir des activités culturelles et artistiques.'
   },
   emplois_francs: {
     template: "Un quartier de votre commune est éligible au dispositif des emplois francs."
@@ -84,31 +84,21 @@ export default {
   },
   prime_conversion_automobile: {
     template: function (payload) {
-      return 'Au niveau départemental, <span>' + formatNumber(payload.nombre_beneficiaires) + '</span> personnes ont pu bénéficier ' +
-          'd’une prime à la conversion automobile d’un montant moyen de <span>' + formatNumber(payload.montant_moyen) + '</span> euros. ' +
-          'Pour savoir si vous êtes éligible, rendez-vous <a href="https://www.primealaconversion.gouv.fr" target="_blank">ici</a>.';
+      return 'Dans votre département, <span>' + formatNumber(payload.nombre_beneficiaires) + '</span> personnes ont pu ' +
+        'bénéficier d’une prime à la conversion automobile ou d’un bonus à l’achat pour acheter une voiture ' +
+        'moins polluante et donc plus économique.';
     }
   },
   dedoublement_classes: {
-    template: function (payload) {
-      if (1 === payload.total_cp_ce1) {
-        return 'Dans votre commune, <span>1</span> classe de CP ou de CE1 a été dédoublée.';
-      } else {
-        return 'Dans votre commune, <span>'+payload.total_cp_ce1+'</span> classes de CP ou de CE1 ont été dédoublées.';
-      }
+    template: function () {
+      return 'Dans votre commune, les classes de CP ou de CE1 ont été dédoublées.'
     }
   },
   mission_bern: {
-    template: function (payload) {
-      let str = 'Un <a href="' + payload.lien + '" target="_blank">projet de rénovation</a> du patrimoine est soutenu par la Mission Bern';
-
-      if (payload.montant) {
-        str += ' à hauteur de <span>' + formatNumber(payload.montant) + '</span> euros dans votre commune';
-      }
-
-      str += '.';
-
-      return str;
+    template: function () {
+      return 'Un projet de rénovation du patrimoine est soutenu par la Mission Bern. ' +
+        'Pour plus d’information sur le financement et les restaurations entreprises, ' +
+        'cliquez <a href="https://www.fondation-patrimoine.org/recherche-projet?typesChecked=Soutenus%20par%20Mission%20Bern&page=1" target="_blank">ici</a>.';
     }
   }
 };
