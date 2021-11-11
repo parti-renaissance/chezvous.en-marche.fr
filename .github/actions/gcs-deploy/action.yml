@@ -1,0 +1,54 @@
+name: GCS Deploy
+description: Build and push ChezVous Ember app to Google Cloud Storage
+
+inputs:
+  serviceAccountKey:
+    description: |-
+      GCP Service Account Key
+      Should be allowed to push on the target Google Cloud Storage Bucket
+    required: true
+  projectId:
+    description: |-
+      GCS Project Id
+      The Google Cloud Project Id that holds the Google Cloud Storage Bucket
+    required: true
+  bucket:
+    description: The target Google Cloud Storage Bucket
+    required: true
+  algoliaApiKey:
+    description: The Algolia API Key
+    required: true
+  algoliaApp:
+    description: The Algolia app key
+    required: true
+  cityIndex:
+    description: The Algolia index of cities
+    required: true
+  mapboxToken:
+    description: The MapBox token
+    required: true
+  deployment:
+    description: Ember deployment name (can be staging or prod)
+    required: false
+    default: staging
+
+runs:
+  using: composite
+  steps:
+    - name: Prepare env files
+      shell: bash
+      run: |-
+        echo ${{ inputs.serviceAccountKey }} | base64 --decode > key.json
+
+        echo "GCS_PROJECT_ID=${{ inputs.projectId }}" >> .env
+        echo "GCLOUD_BUCKET=${{ inputs.bucket }}" >> .env
+        echo "ALGOLIA_API_KEY=${{ inputs.algoliaApiKey }}" >> .env
+        echo "ALGOLIA_APP=${{ inputs.algoliaApp }}" >> .env
+        echo "CITY_INDEX=${{ inputs.cityIndex }}" >> .env
+        echo "MAPBOX_TOKEN=${{ inputs.mapboxToken }}" >> .env
+
+    - name: Ember deploy
+      shell: bash
+      run: |-
+        npx ember deploy ${{ inputs.deployment }} --verbose --activate
+
