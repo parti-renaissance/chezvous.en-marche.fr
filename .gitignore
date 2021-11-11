@@ -10,6 +10,7 @@
 
 # misc
 /.env
+/.env.*
 !.env.sample
 /.pnp*
 /.sass-cache

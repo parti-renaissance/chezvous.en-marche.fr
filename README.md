@@ -64,7 +64,7 @@ There are three environments, each with its own command.
  - commits to master will deploy to staging
 - prod: ember deploy prod
  - Deploys to https://chezvous.en-marche.fr
- - tags following semantic versioning will deploy to prod
+ - tags will deploy to prod
 
 ## Further Reading / Useful Links
 

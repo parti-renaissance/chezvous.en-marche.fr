@@ -46,7 +46,7 @@ templates:
   filter_staging: &filter_staging
     filters:
       branches:
-        only: master
+        only: master2
       tags:
         only: staging
 
