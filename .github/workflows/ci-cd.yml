@@ -1,3 +1,14 @@
+#
+# Requires secrets:
+#   GCP_SA_KEY_GCS_PUSHER_CHEZVOUS  The GCP Service Account key used to push on Google Cloud Storage
+#   GCS_PROJECT_ID                  The GCP Project ID where the GCS Bucket lives
+#   GCLOUD_BUCKET                   The Google Cloud Storage bucket where the app lives
+#   ALGOLIA_API_KEY                 The Algolia API key used by the app
+#   ALGOLIA_APP                     The Algolia APP identifier used by the app
+#   CITY_INDEX                      The identifier of the Algolia city index used by the app
+#   MAPBOX_TOKEN                    The MapBox token used by the app
+#
+
 name: CI/CD
 
 on:

@@ -1,36 +1,31 @@
 name: GCS Deploy
-description: Build and push ChezVous Ember app to Google Cloud Storage
+description: Build and push Ember app to Google Cloud Storage
 
 inputs:
   serviceAccountKey:
-    description: |-
-      GCP Service Account Key
-      Should be allowed to push on the target Google Cloud Storage Bucket
+    description: The GCP Service Account key used to push on Google Cloud Storage
     required: true
   projectId:
-    description: |-
-      GCS Project Id
-      The Google Cloud Project Id that holds the Google Cloud Storage Bucket
+    description: The GCP Project ID where the GCS Bucket lives
     required: true
   bucket:
-    description: The target Google Cloud Storage Bucket
+    description: The Google Cloud Storage bucket where the app lives
     required: true
   algoliaApiKey:
-    description: The Algolia API Key
+    description: The Algolia API key used by the app
     required: true
   algoliaApp:
-    description: The Algolia app key
+    description: The Algolia APP identifier used by the app
     required: true
   cityIndex:
-    description: The Algolia index of cities
+    description: The identifier of the Algolia city index used by the app
     required: true
   mapboxToken:
-    description: The MapBox token
+    description: The MapBox token used by the app
     required: true
   deployment:
     description: Ember deployment name (can be staging or prod)
-    required: false
-    default: staging
+    required: true
 
 runs:
   using: composite
