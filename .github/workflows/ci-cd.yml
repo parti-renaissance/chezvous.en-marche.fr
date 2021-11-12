@@ -1,0 +1,66 @@
+name: CI/CD
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+  release:
+    types: [ published ]
+
+jobs:
+
+  build-test:
+    name: Build & Test
+    runs-on: ubuntu-latest
+    # Do not trigger tests on release
+    if: github.event_name != 'release'
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: ./.github/actions/build
+      - run: |-
+          npx ember test --verbose
+
+  deploy-staging:
+    name: Deploy to Staging
+    # Deploy staging only if tests are ok
+    needs: [ build-test ]
+    runs-on: ubuntu-latest
+    # Deploy staging only from master
+    if: github.event.ref == 'refs/heads/master'
+    environment: staging
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: ./.github/actions/build
+      - uses: ./.github/actions/gcs-deploy
+        with:
+          serviceAccountKey: ${{ secrets.GCP_SA_KEY_GCS_PUSHER_CHEZVOUS }}
+          projectId: ${{ secrets.GCS_PROJECT_ID }}
+          bucket: ${{ secrets.GCLOUD_BUCKET }}
+          algoliaApiKey: ${{ secrets.ALGOLIA_API_KEY }}
+          algoliaApp: ${{ secrets.ALGOLIA_APP }}
+          cityIndex: ${{ secrets.CITY_INDEX }}
+          mapboxToken: ${{ secrets.MAPBOX_TOKEN }}
+          deployment: staging
+
+  deploy-prod:
+    name: Deploy to Prod
+    runs-on: ubuntu-latest
+    # Deploy prod only from releases
+    if: github.event_name == 'release'
+    environment: prod
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: ./.github/actions/build
+      - uses: ./.github/actions/gcs-deploy
+        with:
+          serviceAccountKey: ${{ secrets.GCP_SA_KEY_GCS_PUSHER_CHEZVOUS }}
+          projectId: ${{ secrets.GCS_PROJECT_ID }}
+          bucket: ${{ secrets.GCLOUD_BUCKET }}
+          algoliaApiKey: ${{ secrets.ALGOLIA_API_KEY }}
+          algoliaApp: ${{ secrets.ALGOLIA_APP }}
+          cityIndex: ${{ secrets.CITY_INDEX }}
+          mapboxToken: ${{ secrets.MAPBOX_TOKEN }}
+          deployment: prod
