@@ -8,7 +8,7 @@ export default {
       return 'Pour <span>' +
         formatNumber(payload.nombre_foyers) +
         '</span>  foyers dans votre commune, la taxe d\'habitation était de <span>' +
-        formatNumber(payload.baisse_2018) +
+        formatNumber(payload.baisse_total) +
         '</span> euros en 2018. Désormais, ils ne la paient plus. Pour savoir si vous êtes éligibles à la baisse rendez-vous <a href="https://www.impots.gouv.fr/portail/simulateur-de-la-reforme-de-la-taxe-dhabitation-pour-2019" target="_blank">ici</a>.';
     }
   },
