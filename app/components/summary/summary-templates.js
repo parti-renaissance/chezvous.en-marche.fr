@@ -17,12 +17,12 @@ export default {
       let str = [];
 
       if (payload.nombre_locaux_raccordes_ville && payload.hausse_depuis_2017_ville) {
-        str.push('Dans votre commune, il y a désormais <span>'+formatNumber(payload.nombre_locaux_raccordes_ville)+'</span> locaux raccordés au Très Haut Débit, '+
+        str.push('Dans votre commune, il y a désormais <span>'+formatNumber(payload.nombre_locaux_raccordes_ville)+'</span> locaux raccordables au Très Haut Débit, '+
             'soit <span>'+formatNumber(payload.hausse_depuis_2017_ville)+'</span> de plus qu\'en mai 2017.');
       }
 
       if (payload.nombre_locaux_raccordes_departement && payload.hausse_depuis_2017_departement) {
-        str.push('Au niveau départemental, il y a désormais <span>'+formatNumber(payload.nombre_locaux_raccordes_departement)+'</span> locaux raccordés au Très Haut Débit, '+
+        str.push('Au niveau départemental, il y a désormais <span>'+formatNumber(payload.nombre_locaux_raccordes_departement)+'</span> locaux raccordables au Très Haut Débit, '+
             'soit <span>'+formatNumber(payload.hausse_depuis_2017_departement)+'</span> de plus qu\'en mai 2017.');
       }
 

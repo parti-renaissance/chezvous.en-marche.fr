@@ -8,7 +8,7 @@ export default {
     color: 'watermelon',
   },
   maison_service_accueil_public: {
-    label: "Ouverture d'une maison de service et d'accueil au public",
+    label: "Ouverture d’une Maison France Service",
     color: 'marigold',
   },
 };
