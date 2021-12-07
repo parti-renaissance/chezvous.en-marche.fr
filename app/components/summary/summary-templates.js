@@ -90,15 +90,54 @@ export default {
     }
   },
   dedoublement_classes: {
-    template: function () {
-      return 'Dans votre commune, les classes de CP ou de CE1 ont été dédoublées.'
-    }
+    template: 'Dans votre commune, les classes de CP ou de CE1 ont été dédoublées.'
   },
   mission_bern: {
     template: function () {
       return 'Un projet de rénovation du patrimoine est soutenu par la Mission Bern. ' +
         'Pour plus d’information sur le financement et les restaurations entreprises, ' +
         'cliquez <a href="https://www.fondation-patrimoine.org/recherche-projet?typesChecked=Soutenus%20par%20Mission%20Bern&page=1" target="_blank">ici</a>.';
+    }
+  },
+  france_relance: {
+    template: function (payload) {
+      let str = 'Le plan de relance a permis de financer <span>'+formatNumber(payload.nombre_projets)+'</span> projets dans le département.';
+
+      if (payload.exemple) {
+        str += ' '+payload.exemple;
+      }
+
+      return str;
+    }
+  },
+  devoirs_faits: {
+    template: function (payload) {
+      return 'Pour permettre la réussite des élèves, déjà <span>'+ payload.proportion_eleves +'</span> du département ' +
+        'sont suivis en dehors des heures de classe grâce au programme Devoirs faits.';
+    }
+  },
+  maison_de_sante: {
+    template: function (payload) {
+      return 'Dans le département, il existe désormais <span>'+formatNumber(payload.nombre_maisons)+'</span> maisons de santé, ' +
+        'soit une progression de <span>'+formatNumber(payload.pourcentage_progression)+'%</span> de plus qu\'en 2017.';
+    }
+  },
+  ma_prime_renov: {
+    template: function (payload) {
+      return 'Dans le département, <span>'+formatNumber(payload.nombre_foyers)+'</span> foyers ont bénéficié d\'une prime à la rénovation énergétique.';
+    }
+  },
+  apprentissage: {
+    template: function (payload) {
+      return 'Dans votre département, plus de <span>'+formatNumber(payload.nombre_jeunes)+'</span> jeunes ont opté pour ' +
+        'l\'apprentissage en 2020, soit près de <span>'+formatNumber(payload.pourcentage_progression)+'%</span> de plus qu\'en 2017.';
+    }
+  },
+  entreprises_aidees_covid: {
+    template: function (payload) {
+      return 'Au plus fort de la crise, plus de <span>'+formatNumber(payload.nombre_entreprises)+'</span> entreprises ' +
+        'ont été aidées par les dispositifs de protection et les revenus ' +
+        'de près de <span>'+formatNumber(payload.pourcentage_salaries)+'%</span> des salariés du département ont été préservés grâce au chômage partiel.';
     }
   }
 };
