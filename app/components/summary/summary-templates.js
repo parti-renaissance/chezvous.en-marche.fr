@@ -90,7 +90,15 @@ export default {
     }
   },
   dedoublement_classes: {
-    template: 'Dans votre commune, les classes de CP ou de CE1 ont été dédoublées.'
+    template: function (payload) {
+      let str = 'Dans votre commune, les classes de CP ou de CE1 ont été dédoublées.';
+
+      if (payload.total_eleves) {
+        str += ' Au total, <span>'+formatNumber(payload.total_eleves)+'</span> élèves disposent de meilleures conditions d\'enseignement.';
+      }
+
+      return str;
+    }
   },
   mission_bern: {
     template: function () {
