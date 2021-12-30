@@ -23,7 +23,7 @@
     "@embroider/util": "^0.47.1",
     "@fortawesome/ember-fontawesome": "^0.2.3",
     "@fortawesome/free-brands-svg-icons": "5.15.2",
-    "@fortawesome/free-solid-svg-icons": "5.15.2",
+    "@fortawesome/free-solid-svg-icons": "5.15.4",
     "algoliasearch": "3.35.1",
     "babel-eslint": "8.2.6",
     "broccoli-asset-rev": "3.0.0",
