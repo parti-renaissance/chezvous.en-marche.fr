@@ -74,7 +74,7 @@
     "eslint-plugin-ember": "6.10.1",
     "eslint-plugin-ember-es6-class": "0.0.1",
     "eslint-plugin-node": "11.1.0",
-    "faker": "4.1.0",
+    "faker": "6.6.6",
     "include-media": "1.4.9",
     "liquid-fire": "0.31.0",
     "liquid-wormhole": "2.1.5",
