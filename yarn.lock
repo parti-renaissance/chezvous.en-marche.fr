@@ -5988,15 +5988,15 @@ ember-cli-deploy-build@1.1.2:
     glob "^7.1.1"
     rsvp "^3.5.0"
 
-ember-cli-deploy-display-revisions@2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/ember-cli-deploy-display-revisions/-/ember-cli-deploy-display-revisions-2.0.0.tgz#ecee2db5d0e6357af7c7c5825099677400f9f226"
-  integrity sha512-cTnhXNP2PBNFUPps7LTamd+Zbx+aVtmJpzNbW0HBibWgdYva36gbpI1mezhxDxz+BU6gQ3rKAzufCOyjTj/Ebw==
+ember-cli-deploy-display-revisions@2.1.2:
+  version "2.1.2"
+  resolved "https://registry.yarnpkg.com/ember-cli-deploy-display-revisions/-/ember-cli-deploy-display-revisions-2.1.2.tgz#8168a92684a48484e70a88370014be689bf4fe97"
+  integrity sha512-b5aqlF8WzxOBd7v0A5enV3ef/jEoScEKxhjC8llFSCs5aUqRW/azgco/FzPgwF0Il+4uey3clzHboKjk7ix14A==
   dependencies:
     cli-table3 "^0.6.0"
     core-object "^3.1.5"
     ember-cli-deploy-plugin "^0.2.3"
-    moment "^2.25.3"
+    luxon "^1.25.0"
     rsvp "^4.8.5"
 
 ember-cli-deploy-gcloud-storage@^1.0.1:
@@ -10435,6 +10435,11 @@ lru-cache@^6.0.0:
   dependencies:
     yallist "^4.0.0"
 
+luxon@^1.25.0:
+  version "1.28.0"
+  resolved "https://registry.yarnpkg.com/luxon/-/luxon-1.28.0.tgz#e7f96daad3938c06a62de0fb027115d251251fbf"
+  integrity sha512-TfTiyvZhwBYM/7QdAVDh+7dBTBA29v4ik0Ce9zda3Mnf8on1S5KJI8P2jKFZ8+5C0jhmr0KwJEO/Wdpm0VeWJQ==
+
 magic-string@^0.24.0:
   version "0.24.1"
   resolved "https://registry.yarnpkg.com/magic-string/-/magic-string-0.24.1.tgz#7e38e5f126cae9f15e71f0cf8e450818ca7d5a8f"
@@ -10907,7 +10912,7 @@ moment-timezone@^0.5.13:
   dependencies:
     moment ">= 2.9.0"
 
-"moment@>= 2.9.0", moment@^2.19.3, moment@^2.25.3:
+"moment@>= 2.9.0", moment@^2.19.3:
   version "2.29.1"
   resolved "https://registry.yarnpkg.com/moment/-/moment-2.29.1.tgz#b2be769fa31940be9eeea6469c075e35006fa3d3"
   integrity sha512-kHmoybcPV8Sqy59DwNDY3Jefr64lK/by/da0ViFcuA4DH0vQg5Q6Ze5VimxkfQNSC+Mls/Kx53s7TjP1RhFEDQ==
