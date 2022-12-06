@@ -1800,6 +1800,18 @@
   resolved "https://registry.yarnpkg.com/@handlebars/parser/-/parser-1.1.0.tgz#d6dbc7574774b238114582410e8fee0dc3532bdf"
   integrity sha512-rR7tJoSwJ2eooOpYGxGGW95sLq6GXUaS1UtWvN7pei6n2/okYvCGld9vsUTvkl2migxbkszsycwtMf/GEc1k1A==
 
+"@kwsites/file-exists@^1.1.1":
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/@kwsites/file-exists/-/file-exists-1.1.1.tgz#ad1efcac13e1987d8dbaf235ef3be5b0d96faa99"
+  integrity sha512-m9/5YGR18lIwxSFDwfE3oA7bWuq9kdau6ugN4H2rJeyhFQZcG9AgSHkQtSD15a8WvTgfz9aikZMrKPHvbpqFiw==
+  dependencies:
+    debug "^4.1.1"
+
+"@kwsites/promise-deferred@^1.1.1":
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/@kwsites/promise-deferred/-/promise-deferred-1.1.1.tgz#8ace5259254426ccef57f3175bc64ed7095ed919"
+  integrity sha512-GaHYm+c0O9MjZRu0ongGBRbinu8gVAMd2UZjji6jVmqKtZluZnptXGWhz1E8j8D2HJ3f/yMxKAUC0b+57wncIw==
+
 "@mapbox/geojson-rewind@^0.5.1":
   version "0.5.1"
   resolved "https://registry.yarnpkg.com/@mapbox/geojson-rewind/-/geojson-rewind-0.5.1.tgz#adbe16dc683eb40e90934c51a5e28c7bbf44f4e1"
@@ -4654,6 +4666,14 @@ chalk@^4.0.0, chalk@^4.1.0:
     ansi-styles "^4.1.0"
     supports-color "^7.1.0"
 
+chalk@^4.1.1:
+  version "4.1.2"
+  resolved "https://registry.yarnpkg.com/chalk/-/chalk-4.1.2.tgz#aac4e2b7734a740867aeb16bf02aad556a1e7a01"
+  integrity sha512-oKnbhFyRIXpUuez8iBMmyEa4nbj4IOQyuhc/wy9kY7/WVPcwIO9VA668Pu8RkO7+0G76SLROeyw9CpQ061i4mA==
+  dependencies:
+    ansi-styles "^4.1.0"
+    supports-color "^7.1.0"
+
 chardet@^0.7.0:
   version "0.7.0"
   resolved "https://registry.yarnpkg.com/chardet/-/chardet-0.7.0.tgz#90094849f0937f2eedc2425d0d28a9e5f0cbad9e"
@@ -5171,7 +5191,7 @@ core-object@2.0.6:
   dependencies:
     chalk "^1.1.3"
 
-core-object@^2.0.0, core-object@^2.0.6:
+core-object@^2.0.0:
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/core-object/-/core-object-2.1.1.tgz#4b7a5f1edefcb1e6d0dcb58eab1b9f90bfc666a8"
   integrity sha1-S3pfHt78sebQ3LWOqxufkL/GZqg=
@@ -5446,6 +5466,13 @@ debug@^3.0.1, debug@^3.1.0, debug@^3.1.1, debug@^3.2.6:
   integrity sha512-CFjzYYAi4ThfiQvizrFQevTTXHtnCqWfe7x1AhgEscTz6ZbLbfoLRLPugTQyBth6f8ZERVUSyWHFD/7Wu4t1XQ==
   dependencies:
     ms "^2.1.1"
+
+debug@^4.3.4:
+  version "4.3.4"
+  resolved "https://registry.yarnpkg.com/debug/-/debug-4.3.4.tgz#1319f6579357f2338d3337d2cdd4914bb5dcc865"
+  integrity sha512-PRWFHuSU3eDtQJPvnNY7Jcket1j0t5OuOsFzPPzsekD52Zl8qUfFIPEiswXqIvHWGVHOgX+7G/vCNNhehwxfkQ==
+  dependencies:
+    ms "2.1.2"
 
 debug@~4.1.0:
   version "4.1.1"
@@ -6033,7 +6060,7 @@ ember-cli-deploy-git@1.3.4:
     fs-extra "^5.0.0"
     rsvp "^4.8.1"
 
-ember-cli-deploy-plugin@^0.2.1, ember-cli-deploy-plugin@^0.2.3, ember-cli-deploy-plugin@^0.2.6, ember-cli-deploy-plugin@^0.2.9:
+ember-cli-deploy-plugin@^0.2.1, ember-cli-deploy-plugin@^0.2.3, ember-cli-deploy-plugin@^0.2.9:
   version "0.2.9"
   resolved "https://registry.yarnpkg.com/ember-cli-deploy-plugin/-/ember-cli-deploy-plugin-0.2.9.tgz#a3d395b8adad7ef68d8bacdd0b0f4a61bcf9e651"
   integrity sha1-o9OVuK2tfvaNi6zdCw9KYbz55lE=
@@ -6047,18 +6074,18 @@ ember-cli-deploy-progress@^1.3.0:
   resolved "https://registry.yarnpkg.com/ember-cli-deploy-progress/-/ember-cli-deploy-progress-1.3.0.tgz#18663deed25b4d5397476332f25eed3c3fdf225a"
   integrity sha1-GGY97tJbTVOXR2My8l7tPD/fIlo=
 
-ember-cli-deploy-revision-data@1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/ember-cli-deploy-revision-data/-/ember-cli-deploy-revision-data-1.0.0.tgz#e870abc79f25bc96fe5532fec41baa9e1bc3ccc6"
-  integrity sha1-6HCrx58lvJb+VTL+xBuqnhvDzMY=
+ember-cli-deploy-revision-data@2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/ember-cli-deploy-revision-data/-/ember-cli-deploy-revision-data-2.0.0.tgz#e84277baf2f1952347026af1c30ef19a1f479b8d"
+  integrity sha512-MwgVhjfAr9jUXS3sxe73tB2ob0ykj9/Z42y/35vLWp7fEStMBxhIAYy3BFVP1YLGERAtpr2cfiIQMEpcDSqdWQ==
   dependencies:
-    chalk "^1.1.3"
-    core-object "^2.0.6"
-    ember-cli-deploy-plugin "^0.2.6"
-    git-repo-info "^1.3.0"
-    minimatch "^3.0.3"
-    rsvp "^3.5.0"
-    simple-git "^1.57.0"
+    chalk "^4.1.1"
+    core-object "^3.1.5"
+    ember-cli-deploy-plugin "^0.2.9"
+    git-repo-info "^2.1.1"
+    minimatch "^3.0.4"
+    rsvp "^4.8.5"
+    simple-git "^3.3.0"
 
 ember-cli-deploy@1.0.2:
   version "1.0.2"
@@ -8280,7 +8307,7 @@ git-hooks-list@1.0.3:
   resolved "https://registry.yarnpkg.com/git-hooks-list/-/git-hooks-list-1.0.3.tgz#be5baaf78203ce342f2f844a9d2b03dba1b45156"
   integrity sha512-Y7wLWcrLUXwk2noSka166byGCvhMtDRpgHdzCno1UQv/n/Hegp++a2xBWJL1lJarnKD3SWaljD+0z1ztqxuKyQ==
 
-git-repo-info@^1.3.0, git-repo-info@^1.4.1:
+git-repo-info@^1.4.1:
   version "1.4.1"
   resolved "https://registry.yarnpkg.com/git-repo-info/-/git-repo-info-1.4.1.tgz#2a072823254aaf62fcf0766007d7b6651bd41943"
   integrity sha1-KgcoIyVKr2L88HZgB9e2ZRvUGUM=
@@ -12907,12 +12934,14 @@ silent-error@^1.0.0, silent-error@^1.0.1, silent-error@^1.1.0, silent-error@^1.1
   dependencies:
     debug "^2.2.0"
 
-simple-git@^1.57.0:
-  version "1.117.0"
-  resolved "https://registry.yarnpkg.com/simple-git/-/simple-git-1.117.0.tgz#dc12338dff8533bb28d49b51b6e6fce73071a00b"
-  integrity sha512-2hqTQFkWwU7+d6rWdxDpKnYih430Dek3LzJ3kUzimxOflpBclZUstI9b+Y4x4rSWvqKe698LyZGFAW02/Ja8kA==
+simple-git@^3.3.0:
+  version "3.15.1"
+  resolved "https://registry.yarnpkg.com/simple-git/-/simple-git-3.15.1.tgz#57f595682cb0c2475d5056da078a05c8715a25ef"
+  integrity sha512-73MVa5984t/JP4JcQt0oZlKGr42ROYWC3BcUZfuHtT3IHKPspIvL0cZBnvPXF7LL3S/qVeVHVdYYmJ3LOTw4Rg==
   dependencies:
-    debug "^4.0.1"
+    "@kwsites/file-exists" "^1.1.1"
+    "@kwsites/promise-deferred" "^1.1.1"
+    debug "^4.3.4"
 
 simple-html-tokenizer@^0.3.0:
   version "0.3.0"
